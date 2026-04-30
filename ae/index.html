@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie — Digital Content & Platform Operations</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0e0e0e;
+    --off-white: #f4f1eb;
+    --cream: #ede9df;
+    --red: #c8392b;
+    --charcoal: #2a2a2a;
+    --mid: #6b6560;
+    --border: #d4cfc6;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+    --sans: 'Instrument Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: rgba(244, 241, 235, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--black);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--red); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    padding: 6rem 3rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.1s;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 1.0;
+    color: var(--black);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.25s;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+    font-style: italic;
+    color: var(--mid);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--charcoal);
+    max-width: 480px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.55s;
+  }
+
+  .context-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--black);
+    color: var(--off-white);
+    padding: 0.35rem 0.75rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.45s;
+  }
+
+  .context-tag span { color: var(--red); margin-right: 0.4rem; }
+
+  .hero-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+
+  .hero-contact a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: color 0.2s;
+  }
+
+  .hero-contact a:hover { color: var(--red); }
+  .hero-contact a::before { content: '→'; color: var(--red); font-size: 0.7rem; }
+
+  .hero-right {
+    padding: 6rem 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream);
+  }
+
+  .lanes-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  .lane {
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .lane:nth-child(2) { animation-delay: 0.6s; }
+  .lane:nth-child(3) { animation-delay: 0.75s; }
+  .lane:nth-child(4) { animation-delay: 0.9s; }
+  .lane:last-child { border-bottom: 1px solid var(--border); }
+
+  .lane-num { font-family: var(--mono); font-size: 0.65rem; color: var(--red); margin-bottom: 0.4rem; letter-spacing: 0.1em; }
+  .lane-title { font-family: var(--serif); font-size: 1.4rem; color: var(--black); margin-bottom: 0.5rem; }
+  .lane-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+
+  /* SECTIONS */
+  section { padding: 6rem 3rem; border-top: 1px solid var(--border); }
+
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4rem; }
+  .section-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); white-space: nowrap; padding-top: 0.3rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); color: var(--black); line-height: 1.1; letter-spacing: -0.02em; }
+
+  /* WORK GRID */
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+
+  .work-card {
+    background: var(--off-white);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-card:hover { background: var(--cream); }
+
+  .work-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--red);
+    transition: width 0.35s ease;
+  }
+
+  .work-card:hover::after { width: 100%; }
+
+  .work-num { font-family: var(--mono); font-size: 0.65rem; color: var(--red); letter-spacing: 0.1em; }
+  .work-title { font-family: var(--serif); font-size: 1.55rem; color: var(--black); line-height: 1.2; letter-spacing: -0.02em; }
+  .work-context { font-family: var(--mono); font-size: 0.7rem; color: var(--mid); letter-spacing: 0.06em; text-transform: uppercase; }
+  .work-body { font-size: 0.92rem; color: var(--charcoal); line-height: 1.7; }
+
+  .work-outcome {
+    background: var(--black);
+    color: var(--off-white);
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin-top: auto;
+  }
+
+  .work-outcome strong {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .tools-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+
+  .tool-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    color: var(--mid);
+    background: var(--cream);
+  }
+
+  /* SKILLS */
+  #skills { background: var(--cream); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 4rem; }
+  .skill-group-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .skill-list li { font-size: 0.92rem; color: var(--charcoal); display: flex; align-items: center; gap: 0.6rem; }
+  .skill-list li::before { content: ''; width: 4px; height: 4px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+  /* ABOUT */
+  .about-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
+  .about-sidebar-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 1rem; }
+  .about-facts { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+  .about-facts li { font-size: 0.88rem; color: var(--charcoal); padding-bottom: 0.9rem; border-bottom: 1px solid var(--border); line-height: 1.5; }
+  .about-facts li span { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.2rem; }
+  .about-body p { font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); margin-bottom: 1.5rem; }
+  .about-pull { font-family: var(--serif); font-size: 1.6rem; font-style: italic; color: var(--black); line-height: 1.4; border-left: 3px solid var(--red); padding-left: 1.5rem; margin: 2rem 0; }
+
+  /* FOOTER */
+  footer { background: var(--black); color: var(--off-white); padding: 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #333; }
+  .footer-name { font-family: var(--serif); font-size: 1.4rem; font-style: italic; }
+  .footer-links { display: flex; gap: 2.5rem; list-style: none; }
+  .footer-links a { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--red); }
+  .footer-copy { font-family: var(--mono); font-size: 0.65rem; color: #555; letter-spacing: 0.08em; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 3rem 1.5rem; }
+    .work-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    section { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Jabreneé Hussie</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:jabrenee612@gmail.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-top: none; padding: 0;">
+  <div class="hero-left">
+    <p class="hero-eyebrow">DC · Maryland · Virginia</p>
+    <h1 class="hero-name">Jabreneé<br>Hussie</h1>
+    <p class="hero-title">Digital Content & Platform Operations</p>
+    <div class="context-tag"><span>&#9654;</span> Portfolio prepared for A+E Global Media — Digital Production Assistant</div>
+    <p class="hero-bio">
+      I manage digital content workflows, coordinate assets across multiple platforms, and bring the operational discipline and QA rigor that fast-moving production teams depend on. I've distributed content across Spotify, Apple Music, Libsyn, and platform networks — and I understand what it takes to keep content accurate, on-schedule, and audit-ready at scale. CMU Master of Entertainment Industry Management · Delaware State B.S. Information Technology, Summa Cum Laude.
+    </p>
+    <div class="hero-contact">
+      <a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a>
+      <a href="tel:2408832840">(240) 883-2840</a>
+      <a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank">linkedin.com/in/jabrenee-hussie</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <p class="lanes-label">What I Bring to This Role</p>
+    <div class="lane">
+      <p class="lane-num">01</p>
+      <h3 class="lane-title">Platform & CMS Operations</h3>
+      <p class="lane-desc">Experience managing content across CMS platforms including WordPress and intranet systems, with a workflow-first approach to scheduling, publishing, and maintaining content accuracy at scale.</p>
+    </div>
+    <div class="lane">
+      <p class="lane-num">02</p>
+      <h3 class="lane-title">QA, Documentation & Audit Readiness</h3>
+      <p class="lane-desc">Verified metadata accuracy across 50-60 cue sheets per cycle, maintained tracking logs for quarterly ad syncs, and built compliance documentation frameworks in regulated environments.</p>
+    </div>
+    <div class="lane">
+      <p class="lane-num">03</p>
+      <h3 class="lane-title">Research & Cross-Platform Analysis</h3>
+      <p class="lane-desc">Designed and executed structured research studies across multiple organizations, synthesizing qualitative data into analytical frameworks and strategic deliverables for industry partners.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-header reveal">
+    <span class="section-label">Selected Work</span>
+    <h2 class="section-title">Relevant<br>Experience</h2>
+  </div>
+
+  <div class="work-grid">
+
+    <!-- 01 -->
+    <div class="work-card reveal">
+      <p class="work-num">01 / Most Relevant</p>
+      <h3 class="work-title">Content Production & Platform Distribution</h3>
+      <p class="work-context">Arts Management & Technology Laboratory · CMU · 2023–2024</p>
+      <p class="work-body">
+        Managed end-to-end content production for 16 podcast episodes, overseeing the full pipeline from recording through editing, transcript creation, and distribution across Spotify, Apple Music, and Libsyn. Maintained a consistent weekly publishing schedule across all platforms simultaneously. Identified a structural gap in the content model and restructured the release architecture into two serialized series, improving discoverability and listener retention. Ran monthly analytics reports using Chartable and Libsyn data to surface engagement trends and inform programming decisions.
+      </p>
+      <div class="tools-row">
+        <span class="tool-tag">Descript</span>
+        <span class="tool-tag">Audacity</span>
+        <span class="tool-tag">Otter.ai</span>
+        <span class="tool-tag">Libsyn</span>
+        <span class="tool-tag">Chartable</span>
+        <span class="tool-tag">Spotify</span>
+        <span class="tool-tag">Apple Music</span>
+      </div>
+      <iframe style="border-radius:12px; margin-top:1rem;" src="https://open.spotify.com/embed/playlist/5zlerxiI5RmUHQPb02U1da?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="work-outcome">
+        <strong>Outcome</strong>
+        16 episodes produced and distributed across 3 platforms · 2 serialized series launched · Monthly analytics reports delivered · 100% on-schedule publishing maintained
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="work-card reveal">
+      <p class="work-num">02 / Most Relevant</p>
+      <h3 class="work-title">Metadata QA, Asset Cataloging & Audit Documentation</h3>
+      <p class="work-context">Position Music · Sync & Metadata Intern · 2024</p>
+      <p class="work-body">
+        Verified metadata accuracy across 50-60 NBC Sports cue sheets per cycle, ensuring compliance with PRO reporting requirements and maintaining audit-ready documentation across internal systems. Cataloged 200+ TV, film, trailer, and advertising placements in DISCO, improving asset searchability and metadata visibility for the sync licensing team. Built and maintained 10-20 DISCO playlists per quarter aligned with creative briefs and release calendars. Maintained tracking logs for 10-15 quarterly ad syncs, ensuring consistent documentation standards and supporting cross-department coordination.
+      </p>
+      <div class="tools-row">
+        <span class="tool-tag">DISCO</span>
+        <span class="tool-tag">Metadata Management</span>
+        <span class="tool-tag">Cue Sheets</span>
+        <span class="tool-tag">Compliance Documentation</span>
+        <span class="tool-tag">Asset Tracking</span>
+      </div>
+      <div class="work-outcome">
+        <strong>Outcome</strong>
+        200+ placements cataloged · 50-60 cue sheets verified per cycle · 10-20 playlists built per quarter · Audit-ready tracking logs maintained across all active syncs
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="work-card reveal">
+      <p class="work-num">03</p>
+      <h3 class="work-title">AI Content Evaluation & QA Workflows</h3>
+      <p class="work-context">Handshake · AI Evaluation Fellow · 2025–Present</p>
+      <p class="work-body">
+        Review and classify 50+ AI-generated media outputs per week across text, audio, and visual formats using structured accuracy and quality criteria. Maintain consistent documentation of quality patterns and edge cases to support model refinement and algorithm reliability. Apply structured QA frameworks across high-volume multimodal content workflows, developing familiarity with AI content tools and processes directly applicable to platform content operations and sponsored content QA.
+      </p>
+      <div class="tools-row">
+        <span class="tool-tag">AI Content Evaluation</span>
+        <span class="tool-tag">Structured QA</span>
+        <span class="tool-tag">Multimodal Review</span>
+        <span class="tool-tag">Documentation</span>
+      </div>
+      <div class="work-outcome">
+        <strong>Outcome</strong>
+        50+ outputs reviewed weekly · Consistent quality documentation maintained · Edge case patterns identified and reported across each evaluation cycle
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="work-card reveal">
+      <p class="work-num">04</p>
+      <h3 class="work-title">Cross-Platform Research, Data Intake & Structured Analysis</h3>
+      <p class="work-context">Carnegie Mellon University · Graduate Capstone · 2024–2025</p>
+      <p class="work-body">
+        Designed and executed a structured primary research study across 4+ organizations, conducting executive stakeholder interviews to gather qualitative data on how independent labels navigate catalog strategy, audience development, and platform dependency across DSPs including Spotify, Apple Music, and direct-to-fan platforms. Organized and coded findings into a structured analytical framework, identifying 3 core cross-platform tensions and producing a final strategic report delivered to an industry partner. The research process — intake, coding, synthesis, structured output — mirrors the content research and analysis support this role requires.
+      </p>
+      <div class="tools-row">
+        <span class="tool-tag">Qualitative Research</span>
+        <span class="tool-tag">Data Intake & Coding</span>
+        <span class="tool-tag">Cross-Platform Analysis</span>
+        <span class="tool-tag">Stakeholder Interviews</span>
+        <span class="tool-tag">Strategic Frameworks</span>
+      </div>
+      <div class="work-outcome">
+        <strong>Outcome</strong>
+        4+ executive interviews conducted · Data coded across 3 analytical categories · Final deliverable produced for industry partner Shaboom Records
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <span class="section-label">Capabilities</span>
+    <h2 class="section-title">Skills &<br>Tools</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="reveal">
+      <p class="skill-group-title">Platform & CMS Operations</p>
+      <ul class="skill-list">
+        <li>WordPress CMS</li>
+        <li>Intranet content management</li>
+        <li>Content scheduling & publishing</li>
+        <li>Content audits & migrations</li>
+        <li>QA and bug tracking</li>
+        <li>OTT platform familiarity</li>
+        <li>SEO fundamentals</li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <p class="skill-group-title">Project Management</p>
+      <ul class="skill-list">
+        <li>Airtable</li>
+        <li>Jira</li>
+        <li>Notion</li>
+        <li>Asana</li>
+        <li>Trello</li>
+        <li>Monday.com</li>
+        <li>Cross-functional coordination</li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <p class="skill-group-title">Content & Distribution</p>
+      <ul class="skill-list">
+        <li>Spotify · Apple Music · Libsyn</li>
+        <li>Chartable analytics</li>
+        <li>DISCO catalog management</li>
+        <li>Metadata tagging & verification</li>
+        <li>Cue sheet documentation</li>
+        <li>Asset tracking & compliance logs</li>
+        <li>Multi-platform publishing</li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <p class="skill-group-title">Production Tools</p>
+      <ul class="skill-list">
+        <li>Descript · Audacity</li>
+        <li>Adobe Premiere · Audition</li>
+        <li>Photoshop · Figma · Canva</li>
+        <li>Otter.ai transcript production</li>
+        <li>Podcast production systems</li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <p class="skill-group-title">Research & Analysis</p>
+      <ul class="skill-list">
+        <li>Qualitative research design</li>
+        <li>Stakeholder interviews</li>
+        <li>Data coding & synthesis</li>
+        <li>Analytics reporting</li>
+        <li>AI content evaluation</li>
+        <li>Python · SQL · Excel</li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <p class="skill-group-title">Education</p>
+      <ul class="skill-list">
+        <li>M.S. Entertainment Industry Mgmt</li>
+        <li>Carnegie Mellon University</li>
+        <li>B.S. Information Technology</li>
+        <li>Delaware State University</li>
+        <li>Summa Cum Laude · Honors Program</li>
+        <li>YouTube Music Certificate · 2026</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-label">Background</span>
+    <h2 class="section-title">About</h2>
+  </div>
+
+  <div class="about-inner">
+    <div class="reveal">
+      <p class="about-sidebar-label">Quick Facts</p>
+      <ul class="about-facts">
+        <li><span>Location</span>Upper Marlboro, MD · Available across DMV</li>
+        <li><span>Current Role</span>AI Evaluation Fellow · Handshake (part-time)</li>
+        <li><span>Platform Experience</span>Spotify, Apple Music, Libsyn, DISCO, Chartable, WordPress, intranet CMS</li>
+        <li><span>Specialty</span>Content workflow management, QA documentation, multi-platform distribution, and data-informed content operations</li>
+        <li><span>Available For</span>Full-time and contract roles · Immediate start</li>
+      </ul>
+    </div>
+
+    <div class="about-body reveal">
+      <p>
+        I'm Jabreneé Hussie, a content operations professional with a background spanning digital platform distribution, metadata QA, production coordination, and structured research. I hold a Master of Entertainment Industry Management from Carnegie Mellon University's Heinz College and a B.S. in Information Technology from Delaware State University, where I graduated Summa Cum Laude from the Honors Program.
+      </p>
+
+      <div class="about-pull">
+        I've built my career at the intersection of content systems and platform operations. The throughline is always the same: keep the workflow clean, the documentation audit-ready, and the content accurate across every platform it touches.
+      </div>
+
+      <p>
+        At Position Music I verified metadata across 50-60 cue sheets per cycle and cataloged 200+ placements in DISCO, maintaining compliance documentation and tracking logs across active syncs. At CMU's Arts Management & Technology Lab I managed end-to-end production and multi-platform distribution for 16 podcast episodes, restructuring the content architecture based on analytics data to improve discoverability and retention. At Inovalon I authored and maintained intranet content using CMS tools while building compliance tracking systems across data governance workflows. Currently at Handshake, I'm reviewing 50+ AI-generated media outputs weekly, applying structured QA frameworks across text, audio, and visual content.
+      </p>
+
+      <p>
+        I thrive in environments with clear timelines, defined workflows, and operational structure. I'm comfortable working across multiple projects simultaneously, escalating issues clearly, and maintaining consistent documentation standards even when the pace is fast. That's exactly what I'd bring to the A+E Digital Production team.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Jabreneé Hussie</div>
+  <ul class="footer-links">
+    <li><a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a></li>
+    <li><a href="tel:2408832840">(240) 883-2840</a></li>
+    <li><a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank">LinkedIn</a></li>
+    <li><a href="jhussie.github.io/portfolio" target="_blank">Main Portfolio</a></li>
+  </ul>
+  <p class="footer-copy">DC · Maryland · Virginia</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
