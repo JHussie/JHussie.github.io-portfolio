@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0d;
+    --paper: #f5f0e8;
+    --cream: #ede7d8;
+    --gold: #b8973a;
+    --gold-light: #d4b05a;
+    --muted: #7a7266;
+    --accent: #1a3a2a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+  }
+
+  .hero-left {
+    background: var(--accent);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border: 1px solid rgba(184,151,58,0.2);
+    border-radius: 50%;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    bottom: 60px; left: -40px;
+    width: 200px; height: 200px;
+    border: 1px solid rgba(184,151,58,0.15);
+    border-radius: 50%;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.05;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-tagline {
+    font-size: 14px;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.8;
+    max-width: 340px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.8s;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    margin-top: 4px;
+  }
+
+  .hero-right {
+    background: var(--cream);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hero-intro-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.5s;
+  }
+
+  .hero-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.65;
+    color: var(--ink);
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.7s;
+  }
+
+  .hero-intro strong { color: var(--accent); font-weight: 700; }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 48px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.9s;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 10px 22px;
+    border: 1px solid var(--ink);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.25s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--paper);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 100px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    color: var(--ink);
+  }
+
+  .rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px 0 48px;
+  }
+
+  /* ── CAPABILITIES GRID ── */
+  .capabilities {
+    background: var(--accent);
+    padding: 100px 80px;
+  }
+
+  .capabilities .section-title { color: var(--paper); }
+  .capabilities .section-label { color: var(--gold-light); }
+  .capabilities .rule { background: var(--gold-light); }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .cap-card {
+    background: rgba(245,240,232,0.04);
+    padding: 44px 36px;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+  }
+
+  .cap-card:hover {
+    border-top-color: var(--gold);
+    background: rgba(245,240,232,0.08);
+  }
+
+  .cap-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .cap-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--paper);
+    margin-bottom: 12px;
+  }
+
+  .cap-body {
+    font-size: 13.5px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.8;
+  }
+
+  /* ── WORK SAMPLES ── */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .work-card {
+    background: var(--cream);
+    padding: 48px 40px;
+    position: relative;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .work-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .work-card:hover::before { transform: scaleX(1); }
+  .work-card:hover { transform: translateY(-4px); }
+
+  .work-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 4px 10px;
+    margin-bottom: 20px;
+  }
+
+  .work-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .work-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+
+  .work-metrics {
+    display: flex;
+    gap: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .metric-desc {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .work-card.wide {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .work-card.wide .work-metrics {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy {
+    background: var(--ink);
+    padding: 100px 80px;
+    text-align: center;
+  }
+
+  .philosophy-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-style: italic;
+    color: var(--paper);
+    max-width: 820px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+
+  .philosophy-quote strong {
+    color: var(--gold-light);
+    font-style: normal;
+  }
+
+  .philosophy-attr {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 36px;
+    border-left: 2px solid var(--cream);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--cream);
+  }
+
+  .timeline-item:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -43px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--paper);
+  }
+
+  .timeline-date {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .timeline-org {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .timeline-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--accent);
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--paper);
+  }
+
+  .footer-cta {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .footer-cta:hover { background: var(--gold-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { min-height: 60vh; }
+    section { padding: 70px 40px; }
+    .cap-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .work-card.wide { grid-column: span 1; grid-template-columns: 1fr; gap: 0; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div>
+      <p class="hero-eyebrow">Portfolio — NMPA External Affairs</p>
+    </div>
+    <div>
+      <h1 class="hero-name">Jabren<em>é</em>e<br>Hussie</h1>
+      <p class="hero-tagline" style="margin-top:24px;">Communications professional, music publishing advocate, and creative producer. Built for the work of protecting what songwriters make.</p>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Sync Placements Led</div>
+      </div>
+      <div>
+        <div class="stat-num">10k+</div>
+        <div class="stat-label">Tracks Managed</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Events Produced</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <p class="hero-intro-label">About This Application</p>
+    <p class="hero-intro">
+      I've spent my career at the intersection of <strong>music rights</strong>, <strong>communications</strong>, and <strong>event production</strong> - three pillars of what NMPA's External Affairs team does every day.
+      <br><br>
+      This portfolio documents the work that makes me a fit for your team - not just what I've done, but <strong>how I've done it</strong> and <strong>what it produced</strong>.
+    </p>
+    <div class="nav-links">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Work Samples</a>
+      <a href="#experience">Experience</a>
+      <a href="mailto:your@email.com" class="primary">Contact Me</a>
+    </div>
+  </div>
+</div>
+
+<!-- CAPABILITIES -->
+<section class="capabilities" id="capabilities">
+  <div style="max-width:1040px;margin:0 auto;">
+    <p class="section-label">What I Bring</p>
+    <h2 class="section-title">Six Capabilities.<br>One Unified Practice.</h2>
+    <div class="rule"></div>
+    <div class="cap-grid">
+      <div class="cap-card reveal">
+        <span class="cap-icon">✍🏾</span>
+        <h3 class="cap-title">Written Communications</h3>
+        <p class="cap-body">Press releases, member newsletters, pitch materials, licensing briefs, social copy, show notes. I write for public relations, internal stakeholders, and creative audiences - adapting voice without losing clarity.</p>
+      </div>
+      <div class="cap-card reveal">
+        <span class="cap-icon">🎙️</span>
+        <h3 class="cap-title">Music Industry Fluency</h3>
+        <p class="cap-body">I understand sync licensing, publishing rights, cue sheets, the MLC, and how royalty policy affects creators. I can represent NMPA's work with precision - not just enthusiasm - because I've lived inside these systems.</p>
+      </div>
+      <div class="cap-card reveal">
+        <span class="cap-icon">📱</span>
+        <h3 class="cap-title">Social & Digital</h3>
+        <p class="cap-body">Multi-platform content strategy and execution. I've managed editorial calendars, produced graphics, written copy, and grown accounts - with a consistent eye toward audience and mission alignment.</p>
+      </div>
+      <div class="cap-card reveal">
+        <span class="cap-icon">🎪</span>
+        <h3 class="cap-title">Event Production</h3>
+        <p class="cap-body">End-to-end event management from planning to on-site staffing. Guest lists, logistics, vendor coordination, talent relations, donor stewardship, and branded collateral - I've owned these functions across 10+ events.</p>
+      </div>
+      <div class="cap-card reveal">
+        <span class="cap-icon">📊</span>
+        <h3 class="cap-title">Research & Visual Analysis</h3>
+        <p class="cap-body">Synthesizing trade press, industry data, and policy developments into executive-ready presentations. Comfortable turning spreadsheets and monitoring feeds into charts and narratives that drive decisions.</p>
+      </div>
+      <div class="cap-card reveal">
+        <span class="cap-icon">🗂️</span>
+        <h3 class="cap-title">Systems & Contact Management</h3>
+        <p class="cap-body">Salesforce, DISCO, Excel, and CMS platforms. I've built and maintained press lists, talent databases, donor records, and catalog metadata systems - with the attention to detail that makes outreach actually work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="work" style="padding:100px 80px;max-width:none;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label reveal">Selected Work</p>
+    <h2 class="section-title reveal">Projects That Demonstrate<br>The Work NMPA Needs.</h2>
+    <div class="rule reveal"></div>
+  </div>
+
+  <div class="work-grid" style="max-width:1200px;margin:0 auto;">
+
+    <div class="work-card wide reveal">
+      <div>
+        <span class="work-tag">Sync Licensing · Communications</span>
+        <h3 class="work-title">Catalog Communications & NBC Sports Placement Pipeline</h3>
+        <p class="work-body">
+          At Position Music, I owned the written communications workflow for an active sync catalog - drafting licensing briefs, creative pitches, and partner correspondence for placements across TV, film, and advertising. My coordination on NBC Sports placements required me to manage relationships, ensure cue sheet accuracy, and keep rights documentation current across hundreds of assets.
+          <br><br>
+          The skill that applies directly to NMPA: the ability to write precisely about music rights for different audiences - from creative directors to legal teams - while keeping metadata and contact records accurate enough to actually be useful.
+        </p>
+      </div>
+      <div>
+        <div class="work-metrics">
+          <div class="metric">
+            <span class="metric-num">200+</span>
+            <span class="metric-desc">Placements coordinated</span>
+          </div>
+          <div class="metric">
+            <span class="metric-num">10K+</span>
+            <span class="metric-desc">Tracks in managed catalog</span>
+          </div>
+          <div class="metric">
+            <span class="metric-num">NBC</span>
+            <span class="metric-desc">Sports placements included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-card reveal">
+      <span class="work-tag">Events · Fundraising</span>
+      <h3 class="work-title">Cultural Event Production & Donor Relations</h3>
+      <p class="work-body">
+        As Production Coordinator at Shades Collective, I led all aspects of event execution across 10+ programming events in the DMV - from logistics planning and vendor management to on-site staffing and guest list operations. I also managed donor and sponsor communications for fundraising initiatives, handling outreach, acknowledgment letters, and CRM tracking across the full giving lifecycle.
+        <br><br>
+        This work maps directly to SONGS Foundation fundraising support and NMPA's multi-city event calendar.
+      </p>
+      <div class="work-metrics">
+        <div class="metric">
+          <span class="metric-num">10+</span>
+          <span class="metric-desc">Events produced</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">DMV</span>
+          <span class="metric-desc">Market (DC-based)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-card reveal">
+      <span class="work-tag">Social Media · Design · Content</span>
+      <h3 class="work-title">Brand Communications & Digital Content Program</h3>
+      <p class="work-body">
+        Developed and executed Shades Collective's multi-platform social media presence from scratch - writing all copy, creating all graphics (Adobe Creative Suite + Canva), managing the publishing calendar, and maintaining brand consistency across Instagram, Twitter, and LinkedIn.
+        <br><br>
+        Also produced all event collateral: signage, programs, digital promotional materials, and branded assets on deadline. This is the same muscle required for NMPA's social channels, press presence, and Gold & Platinum Program visual communications.
+      </p>
+      <div class="work-metrics">
+        <div class="metric">
+          <span class="metric-num">3</span>
+          <span class="metric-desc">Platforms managed</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">Full</span>
+          <span class="metric-desc">Design ownership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-card reveal">
+      <span class="work-tag">Research · Press · Database</span>
+      <h3 class="work-title">Press List Development & Talent Database Management</h3>
+      <p class="work-body">
+        At Common Thread, I built and maintained comprehensive talent and press contact databases for entertainment industry outreach campaigns, ensuring record accuracy across thousands of contacts. Drafted research briefings and background documents to support communications and partnership teams.
+        <br><br>
+        Combined with Salesforce experience at Position Music, this work represents exactly what NMPA's contact list maintenance and press outreach needs look like at scale.
+      </p>
+      <div class="work-metrics">
+        <div class="metric">
+          <span class="metric-num">✓</span>
+          <span class="metric-desc">Salesforce proficient</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">✓</span>
+          <span class="metric-desc">Press list management</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<div class="philosophy">
+  <p class="philosophy-quote">
+    "Every press release, every event, every social post is a chance to make someone feel the weight of what music publishing <strong>actually protects</strong> - a songwriter's right to their own work."
+  </p>
+  <p class="philosophy-attr">— Jabreneé Hussie, on why this work matters</p>
+</div>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience" style="padding:100px 80px;max-width:1100px;margin:0 auto;">
+  <p class="section-label reveal">Background</p>
+  <h2 class="section-title reveal">Where I've Been.</h2>
+  <div class="rule reveal"></div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2025 - Present</div>
+      <div class="timeline-title">AI Evaluation Fellow</div>
+      <div class="timeline-org">Handshake · Remote</div>
+      <div class="timeline-body">Evaluating AI-generated content in professional communications contexts. Providing structured written feedback that informs model quality and output standards.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2023 - 2024</div>
+      <div class="timeline-title">Sync Licensing & Catalog Coordinator</div>
+      <div class="timeline-org">Position Music · Los Angeles, CA (Remote)</div>
+      <div class="timeline-body">Led 200+ sync placements end-to-end. Owned catalog metadata for 10,000+ tracks. Drafted licensing communications and creative pitches. Produced analytics reports for leadership.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2022 - 2023</div>
+      <div class="timeline-title">Production Coordinator & Brand Partnerships</div>
+      <div class="timeline-org">Shades Collective · Washington, DC</div>
+      <div class="timeline-body">Led production for 10+ cultural events. Managed full social media program, all event design, donor communications, and talent relations.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2022</div>
+      <div class="timeline-title">Talent Database Researcher</div>
+      <div class="timeline-org">Common Thread · Remote</div>
+      <div class="timeline-body">Built and maintained press and talent contact databases for entertainment industry outreach. Drafted research briefings for communications teams.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2023 - 2024</div>
+      <div class="timeline-title">Podcast Producer</div>
+      <div class="timeline-org">AMT Lab, Carnegie Mellon University · Pittsburgh, PA</div>
+      <div class="timeline-body">Independently produced arts management podcast series. Managed full editorial pipeline, guest booking, show notes, and social promotion.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Education</div>
+      <div class="timeline-title">M.S., Entertainment Industry Management</div>
+      <div class="timeline-org">Carnegie Mellon University, Heinz College · May 2025</div>
+      <div class="timeline-body">Graduate focus on music publishing, rights management, entertainment law, and industry operations.</div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Education</div>
+      <div class="timeline-title">B.S., Information Technology</div>
+      <div class="timeline-org">Delaware State University · May 2023 · Summa Cum Laude</div>
+      <div class="timeline-body">Technical foundation in systems, data, and digital infrastructure - informing a career where creative operations and content systems converge.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Jabreneé Hussie</div>
+  <div style="font-size:13px;color:rgba(245,240,232,0.5);text-align:center;">
+    Applying for Manager, External Affairs<br>
+    National Music Publishers' Association
+  </div>
+  <a href="mailto:your@email.com" class="footer-cta">Get In Touch</a>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
