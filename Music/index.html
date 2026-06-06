@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie — Music Supervision & Sync</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8272A;
+    --red-dark: #B01E20;
+    --black: #0A0A0A;
+    --off-black: #111111;
+    --paper: #F0EDE6;
+    --paper-dark: #D9D5CC;
+    --white: #FAFAFA;
+    --gray: #888880;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(232,39,42,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  nav ul a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--red); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(8rem, 20vw, 18rem);
+    color: rgba(232,39,42,0.04);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--red);
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  h1 .accent { color: var(--white); }
+
+  .hero-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+  }
+
+  .hero-bio {
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(250,250,250,0.75);
+    margin-bottom: 3rem;
+  }
+
+  .hero-bio strong { color: var(--white); font-weight: 500; }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    border: 1px solid;
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+  }
+
+  .btn-primary:hover {
+    background: var(--red-dark);
+    border-color: var(--red-dark);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(250,250,250,0.25);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  /* TICKER */
+  .ticker {
+    background: var(--red);
+    padding: 0.6rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 25s linear infinite;
+  }
+
+  .ticker-inner span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    margin: 0 2rem;
+  }
+
+  .ticker-inner span.dot {
+    color: rgba(255,255,255,0.4);
+    margin: 0;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--red);
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT / SOUNDTRACK */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-photo-wrap {
+    position: relative;
+  }
+
+  .about-photo-frame {
+    border: 1px solid rgba(232,39,42,0.4);
+    padding: 0.75rem;
+    background: var(--off-black);
+    max-width: 380px;
+  }
+
+  .about-photo-frame img {
+    width: 100%;
+    display: block;
+    filter: grayscale(20%);
+  }
+
+  .photo-caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .track-list {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(250,250,250,0.08);
+  }
+
+  .track {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(250,250,250,0.06);
+  }
+
+  .track-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--red);
+    min-width: 2rem;
+    line-height: 1;
+  }
+
+  .track-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(250,250,250,0.7);
+  }
+
+  /* SPOTIFY EMBED */
+  .spotify-wrap {
+    margin-top: 2.5rem;
+    border: 1px solid rgba(232,39,42,0.2);
+  }
+
+  /* WORK SECTION */
+  .work-section { background: var(--off-black); }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5px;
+    background: rgba(232,39,42,0.15);
+    border: 1.5px solid rgba(232,39,42,0.15);
+  }
+
+  .work-card {
+    background: var(--off-black);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .work-card:hover { background: #161616; }
+
+  .work-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--red);
+    transition: height 0.3s;
+  }
+
+  .work-card:hover::before { height: 100%; }
+
+  .work-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+    display: inline-block;
+    border: 1px solid rgba(232,39,42,0.3);
+    padding: 0.25rem 0.6rem;
+  }
+
+  .work-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .work-card .org {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+  }
+
+  .work-card p {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: rgba(250,250,250,0.6);
+    margin-bottom: 1.5rem;
+  }
+
+  .work-card a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .work-card a:hover { gap: 0.75rem; }
+
+  .work-card a::after { content: '→'; }
+
+  /* MUSIC SUPERVISION FEATURE */
+  .supervision-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .video-wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border: 1px solid rgba(232,39,42,0.3);
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .supervision-text h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .supervision-text .film-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .supervision-text p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(250,250,250,0.65);
+    margin-bottom: 1.25rem;
+  }
+
+  .supervision-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .sup-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(250,250,250,0.15);
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+  }
+
+  .sup-link:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  .sup-link::after { content: '↗'; }
+
+  /* RESEARCH SECTION */
+  .research-card {
+    border: 1px solid rgba(232,39,42,0.2);
+    padding: 2.5rem;
+    background: linear-gradient(135deg, var(--off-black) 0%, #0f0a0a 100%);
+    margin-top: 2rem;
+  }
+
+  .research-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .research-card .rq-list {
+    list-style: none;
+    margin: 1.5rem 0;
+  }
+
+  .research-card .rq-list li {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: rgba(250,250,250,0.65);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(250,250,250,0.06);
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .research-card .rq-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+  }
+
+  .collab-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .collab-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid rgba(232,39,42,0.3);
+    color: var(--red);
+  }
+
+
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--red);
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .contact-section p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-links .btn {
+    background: transparent;
+    border-color: rgba(255,255,255,0.4);
+    color: var(--white);
+  }
+
+  .contact-links .btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--white);
+  }
+
+  .contact-links .btn-dark {
+    background: var(--black);
+    border-color: var(--black);
+    color: var(--white);
+  }
+
+  .contact-links .btn-dark:hover {
+    background: var(--off-black);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(250,250,250,0.06);
+  }
+
+  footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+  }
+
+  footer a {
+    color: var(--red);
+    text-decoration: none;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(250,250,250,0.06);
+    margin: 4rem 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { gap: 1.25rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .supervision-feature { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">JH<span>.</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#supervision">Music Supervision</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text" aria-hidden="true">SOUND</div>
+  <div class="hero-tag">Music Supervision &amp; Sync Licensing</div>
+  <h1>Jabrene<span class="accent">é</span><br>Hussie</h1>
+  <p class="hero-sub">Sync Coordinator &nbsp;·&nbsp; Catalog Management &nbsp;·&nbsp; Independent Label Operations &nbsp;·&nbsp; DMV-Based</p>
+  <p class="hero-bio">
+    I believe <strong>music is a narrative tool</strong> — every placement, every cue, every licensed track is a decision about how a story feels. I'm a music industry professional with experience in sync licensing at <strong>Position Music</strong>, music supervision for diaspora documentary <strong>Roots &amp; Revelry</strong>, and independent label research across the UK/US ecosystem. Currently based in the DMV and open to remote and local opportunities.
+  </p>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-primary">View My Work</a>
+    <a href="mailto:jabrenee612@gmail.com" class="btn btn-secondary">Get In Touch</a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>Sync Licensing</span><span class="dot">·</span>
+    <span>DISCO Catalog Management</span><span class="dot">·</span>
+    <span>Cue Sheet Documentation</span><span class="dot">·</span>
+    <span>PRO Compliance</span><span class="dot">·</span>
+    <span>Music Supervision</span><span class="dot">·</span>
+    <span>Metadata Tagging</span><span class="dot">·</span>
+    <span>Independent Label Strategy</span><span class="dot">·</span>
+    <span>Diaspora Storytelling</span><span class="dot">·</span>
+    <span>Artist Research</span><span class="dot">·</span>
+    <span>Sync Licensing</span><span class="dot">·</span>
+    <span>DISCO Catalog Management</span><span class="dot">·</span>
+    <span>Cue Sheet Documentation</span><span class="dot">·</span>
+    <span>PRO Compliance</span><span class="dot">·</span>
+    <span>Music Supervision</span><span class="dot">·</span>
+    <span>Metadata Tagging</span><span class="dot">·</span>
+    <span>Independent Label Strategy</span><span class="dot">·</span>
+    <span>Diaspora Storytelling</span><span class="dot">·</span>
+    <span>Artist Research</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="about-photo-wrap fade-in">
+      <div class="about-photo-frame">
+        <img src="https://i.imgur.com/placeholder.jpg" alt="Jabreneé Hussie" id="hero-photo" onerror="this.style.display='none'; this.parentElement.style.background='#1a1a1a'; this.parentElement.style.minHeight='300px';">
+        <p class="photo-caption">Jabreneé Hussie &nbsp;·&nbsp; DMV</p>
+      </div>
+
+      <div class="spotify-wrap">
+        <iframe style="border-radius:0" src="https://open.spotify.com/embed/playlist/6fI2cH02kFA9sSA1fMD9uA?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="The Soundtrack That Shapes Me — Jabreneé Hussie"></iframe>
+      </div>
+    </div>
+
+    <div class="fade-in">
+      <h2>The Soundtrack<br>That <span style="color:var(--red)">Shapes</span> Me</h2>
+      <p style="font-size:0.95rem; line-height:1.8; color:rgba(250,250,250,0.7); margin-bottom:1rem;">
+        Raised in the DMV. Violin trained. Research-driven. I came to music supervision through the intersection of technology and storytelling — a speech emotion recognition thesis that revealed how deeply audio shapes human experience, and a sync licensing internship that showed me how that understanding translates into real industry decisions.
+      </p>
+      <p style="font-size:0.95rem; line-height:1.8; color:rgba(250,250,250,0.7);">
+        My work centers on music that helps people see themselves in stories — particularly those from the African diaspora, Black communities, and underrepresented cultures globally.
+      </p>
+
+      <div class="track-list">
+        <div class="track">
+          <div class="track-num">01</div>
+          <div class="track-text">Raised in the DMV — I lead with heart, intention, and a deep sense of community.</div>
+        </div>
+        <div class="track">
+          <div class="track-num">02</div>
+          <div class="track-text">Playing violin taught me that emotional impact takes repetition, revision, and the willingness to keep listening.</div>
+        </div>
+        <div class="track">
+          <div class="track-num">03</div>
+          <div class="track-text">I see music as a narrative tool — editing for emotional impact, not just sound.</div>
+        </div>
+        <div class="track">
+          <div class="track-num">04</div>
+          <div class="track-text">I'm inspired by diverse storytelling, especially diaspora narratives and BIPOC voices.</div>
+        </div>
+        <div class="track">
+          <div class="track-num">05</div>
+          <div class="track-text">It's not just about telling stories — it's about who gets to be seen and heard.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="work-section">
+  <div class="section-label">Experience</div>
+  <h2>Where I've <span style="color:var(--red)">Worked</span></h2>
+
+  <div class="work-grid">
+    <div class="work-card fade-in">
+      <span class="work-tag">Sync Licensing</span>
+      <h3>Position Music</h3>
+      <p class="org">Burbank, CA &nbsp;·&nbsp; Oct – Dec 2024</p>
+      <p>Cataloged 200+ TV, film, trailer, and advertising placements in DISCO. Verified metadata across 50–60 NBC Sports cue sheets per cycle for PRO reporting compliance. Created and categorized 10–20 DISCO playlists aligned with briefs and new releases. Tagged Kings &amp; Creatures tracks with genre and keyword metadata for trailer sync discovery.</p>
+    </div>
+
+    <div class="work-card fade-in">
+      <span class="work-tag">Music Supervision</span>
+      <h3>Shades Collective</h3>
+      <p class="org">Los Angeles, CA (Remote) &nbsp;·&nbsp; Oct 2024 – May 2025</p>
+      <p>Served as music supervisor for <em>Roots &amp; Revelry</em>, a diaspora documentary podcast directed by Nadia Sasso. Cleared and secured licensed music from Ghanaian artist Black Sherif alongside royalty-free selections across 10 episodes. Built original content production decks guiding on-the-ground filming in Ghana.</p>
+    </div>
+
+    <div class="work-card fade-in">
+      <span class="work-tag">Talent Research</span>
+      <h3>Common Thread Entertainment</h3>
+      <p class="org">New York, NY (Remote) &nbsp;·&nbsp; Jan – May 2025</p>
+      <p>Evaluated and cataloged 137 voice-over artists with a 70% acceptance rate, applying talent discovery and assessment skills directly relevant to artist roster development. Conducted demographic and market research across 5+ simultaneous project pipelines.</p>
+    </div>
+
+    <div class="work-card fade-in">
+      <span class="work-tag">Podcast Production</span>
+      <h3>AMT Lab, CMU</h3>
+      <p class="org">Pittsburgh, PA (Hybrid) &nbsp;·&nbsp; Sep 2023 – May 2024</p>
+      <p>Produced and edited 16 episodes end-to-end, including <em>Art++Code</em> and <em>Art++Climate</em> — two serialized series in partnership with the Frank-Ratchye STUDIO for Creative Inquiry, featuring VJs, coding artists, and technologists at the intersection of art and sound.</p>
+      <div style="margin-top:1.25rem;">
+        <iframe style="border-radius:0" src="https://open.spotify.com/embed/playlist/5zlerxiI5RmUHQPb02U1da?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Podcasts Produced by Jabreneé Hussie — AMT Lab CMU"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC SUPERVISION -->
+<section id="supervision">
+  <div class="section-label">Music Supervision</div>
+  <h2>Scene <span style="color:var(--red)">Work</span></h2>
+
+  <div class="supervision-feature fade-in">
+    <div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/0ubU6m8LcCI" title="Waiting to Exhale — Music Supervision by Jabreneé Hussie" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="supervision-text">
+      <span class="film-label">Music Supervision Coursework</span>
+      <h3>Waiting to Exhale</h3>
+      <p>A music supervision reimagining of the iconic Angela Bassett car scene. Selected and placed music to reinterpret the emotional arc of the scene — examining how sound shapes narrative meaning, catharsis, and cultural resonance for Black women audiences.</p>
+
+      <h3 style="margin-top:2rem;">The Truth About Cats &amp; Dogs</h3>
+      <p>A 30-minute music supervision edit exploring how romantic comedy benefits from genre-specific cue decisions. Accompanied by a full set of spotting notes documenting placement rationale.</p>
+
+      <div class="supervision-links">
+        <a href="https://docs.google.com/document/d/1VKxxCZQCeMA9NiTLOrmqfN-PPokHcGNJ/edit" class="sup-link" target="_blank" rel="noopener">View Spotting Notes — Truth About Cats &amp; Dogs</a>
+        <a href="https://drive.google.com/file/d/1Gm_OuRjmeTtclc6lQ_WFo8VJsGZVNWCZ/view" class="sup-link" target="_blank" rel="noopener">View Full Music Supervision Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" style="background: var(--off-black);">
+  <div class="section-label">Research</div>
+  <h2>Industry <span style="color:var(--red)">Research</span></h2>
+
+  <div class="research-card fade-in">
+    <span class="work-tag">Graduate Capstone — Carnegie Mellon University, 2025</span>
+    <h3>Remixing the Music Industry:<br>Strategies for 21st Century Record Labels</h3>
+    <p style="font-size:0.9rem; line-height:1.8; color:rgba(250,250,250,0.65); margin-top:1rem;">
+      A team research project analyzing how independent labels in the UK/US can grow revenue streams, optimize DSP strategy, and build engagement with Gen Z and Gen Alpha audiences. Conducted executive interviews with industry professionals and produced a full report with actionable recommendations.
+    </p>
+
+    <ul class="rq-list">
+      <li>What revenue streams are best suited for UK/US indie labels for expanded growth?</li>
+      <li>What DSP strategies yield the best results for increased monthly active listeners in the EDM genre?</li>
+      <li>What methods can indie labels adopt to achieve high engagement among Gen Z and Gen Alpha listeners?</li>
+    </ul>
+
+    <div class="collab-tags">
+      <span class="collab-tag">Position Music</span>
+      <span class="collab-tag">Beatport</span>
+      <span class="collab-tag">Rostrum Records</span>
+      <span class="collab-tag">Independent Label Strategy</span>
+      <span class="collab-tag">DSP Optimization</span>
+      <span class="collab-tag">Direct-to-Fan</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="research-card fade-in">
+    <span class="work-tag">Industry Analysis</span>
+    <h3>UMG &amp; Artificial Intelligence:<br>Navigating the Future of Music</h3>
+    <p style="font-size:0.9rem; line-height:1.8; color:rgba(250,250,250,0.65); margin-top:1rem;">
+      A presentation analyzing how Universal Music Group is responding to the rapid integration of AI in the music industry — examining policy, artist rights, catalog protection, and competitive strategy.
+    </p>
+    <div style="margin-top:1.5rem;">
+      <a href="https://docs.google.com/presentation/d/1TO8QCMreUsdzcMO5Vq-QKwaSznBx7Byj/edit" class="sup-link" target="_blank" rel="noopener" style="max-width:380px; display:flex; justify-content:space-between; border:1px solid rgba(232,39,42,0.3); padding:0.75rem 1.25rem; color:var(--white); text-decoration:none; font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; transition:all 0.2s;">View UMG AI Presentation <span>↗</span></a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-label" style="justify-content:center; color:rgba(255,255,255,0.7);">Let's Connect</div>
+  <h2>Available for<br>Opportunities</h2>
+  <p>Based in the DMV. Open to music supervision, sync coordination, catalog management, and music industry roles — remote or local. Let's talk.</p>
+
+  <div class="contact-links">
+    <a href="mailto:jabrenee612@gmail.com" class="btn btn-dark">jabrenee612@gmail.com</a>
+    <a href="https://www.linkedin.com/in/jabrenee-hussie" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://jhussie.github.io/portfolio" class="btn" target="_blank" rel="noopener">Full Portfolio</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Jabreneé Hussie &nbsp;·&nbsp; Upper Marlboro, MD</p>
+  <p>Built for music. Rooted in story. <a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const img = document.getElementById('hero-photo');
+  if (img) {
+    img.onerror = function() {
+      this.style.display = 'none';
+      this.parentElement.innerHTML += '<div style="min-height:280px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;"><span style="font-family:\'Bebas Neue\',sans-serif;font-size:4rem;color:#E8272A;letter-spacing:0.1em;">JH</span></div>';
+    };
+  }
+</script>
+
+</body>
+</html>
