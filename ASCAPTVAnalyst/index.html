@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie, TV Distribution Analyst | ASCAP Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --ink-soft: #3D3D38;
+    --ink-muted: #7A7A72;
+    --rule: #D4D0C8;
+    --rule-light: #ECEAE4;
+    --paper: #F8F6F1;
+    --paper-warm: #F0EDE6;
+    --accent: #1B4B8A;
+    --accent-light: #EBF0F8;
+    --accent-muted: #4A72A8;
+    --gold: #8B6914;
+    --gold-light: #F5EED8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* TOP RULE */
+  .top-rule {
+    height: 4px;
+    background: var(--accent);
+    width: 100%;
+  }
+
+  /* NAV */
+  nav {
+    border-bottom: 1px solid var(--rule);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-back {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--accent); }
+  .nav-back::before { content: '←'; }
+
+  .nav-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .nav-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.3rem 0.75rem;
+    border: 1px solid rgba(27,75,138,0.2);
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 3rem 4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 200px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-statement {
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 640px;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem;
+    font-style: italic;
+  }
+
+  /* MAIN LAYOUT */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 3rem 6rem;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    min-width: 2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.35rem;
+    flex: 1;
+  }
+
+  /* CASE STUDY CARD */
+  .case-card {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .case-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .case-org {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .case-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+
+  .badge-ops { color: var(--accent); border-color: var(--accent); background: var(--accent-light); }
+  .badge-music { color: var(--gold); border-color: var(--gold); background: var(--gold-light); }
+
+  .case-body {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+  }
+
+  .case-details {
+    list-style: none;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+  }
+
+  .case-details li {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .case-details li:last-child { border-bottom: none; }
+
+  .case-details li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* METRICS ROW */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 1.25rem;
+  }
+
+  .metric {
+    background: var(--paper);
+    padding: 1rem 1.25rem;
+    text-align: center;
+  }
+
+  .metric-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .metric-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+
+  /* SKILLS GRID */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .skill-block {
+    border: 1px solid var(--rule);
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-warm);
+  }
+
+  .skill-block-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .skill-list {
+    list-style: none;
+  }
+
+  .skill-list li {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .skill-list li:last-child { border-bottom: none; }
+  .skill-list li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  /* COURSEWORK TABLE */
+  .course-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .course-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--rule-light);
+    background: var(--paper-warm);
+  }
+
+  .course-item.highlight {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* RESEARCH BLOCK */
+  .research-block {
+    border: 1px solid var(--rule);
+    padding: 2rem 2.25rem;
+    background: var(--paper-warm);
+    margin-bottom: 1rem;
+  }
+
+  .research-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    font-style: italic;
+  }
+
+  .research-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .research-body {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .interview-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .itag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-muted);
+    background: var(--paper);
+  }
+
+  /* MISSION BLOCK */
+  .mission-block {
+    background: var(--accent);
+    color: white;
+    padding: 2.5rem;
+    margin-top: 1rem;
+  }
+
+  .mission-block p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.9);
+    font-style: italic;
+  }
+
+  .mission-block .mission-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1rem;
+    display: block;
+    font-style: normal;
+  }
+
+  /* CONTACT STRIP */
+  .contact-strip {
+    background: var(--ink);
+    color: white;
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .contact-strip p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+  }
+
+  .contact-strip a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+
+  .contact-strip a:hover { border-color: white; }
+
+  .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 680px) {
+    nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    .main { padding: 0 1.5rem 4rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .course-grid { grid-template-columns: 1fr; }
+    .contact-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://jhussie.github.io/portfolio" class="nav-back">Portfolio</a>
+  <span class="nav-title">Jabreneé Hussie</span>
+  <span class="nav-role">ASCAP · TV Analyst Application</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Application Portfolio</div>
+  <h1>Jabreneé Hussie</h1>
+  <p class="hero-role">Cue Sheet Documentation &nbsp;·&nbsp; PRO Compliance &nbsp;·&nbsp; Music Rights Operations &nbsp;·&nbsp; Upper Marlboro, MD</p>
+  <p class="hero-statement">
+    The first time I submitted a cue sheet correction on behalf of a songwriter partner at Position Music, I understood in a very concrete way what it means when a performing rights organization gets it right, or doesn't. Every entry I verified, every discrepancy I flagged, and every PRO report I prepared was a direct link between a creator's work and their ability to be paid fairly for it.
+  </p>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SECTION 1: CORE EXPERIENCE -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Cue Sheet & PRO Compliance Work</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div>
+          <p class="case-title">Sync & Metadata Project Intern</p>
+          <p class="case-org">Position Music &nbsp;·&nbsp; Burbank, CA &nbsp;·&nbsp; Oct – Dec 2024</p>
+        </div>
+        <span class="case-badge badge-music">Music Licensing</span>
+      </div>
+
+      <p class="case-body">
+        At Position Music, my primary responsibility was ensuring that cue sheet data submitted to PROs was accurate, complete, and audit-ready, the same function at the core of ASCAP's TV Distribution role. I worked directly with NBC Sports programming data, verifying metadata entries and reconciling discrepancies before they could affect royalty distribution downstream.
+      </p>
+
+      <ul class="case-details">
+        <li>Verified metadata for 50–60 NBC Sports cue sheet entries per cycle to ensure accuracy for royalty distribution, performance tracking, and PRO reporting</li>
+        <li>Identified and reconciled discrepancies in cue sheet content, coordinating with internal teams to procure and upload missing data</li>
+        <li>Cataloged 200+ sync placements across TV, film, trailer, and advertising, maintaining accurate logs for licensing audits and internal reporting</li>
+        <li>Tagged tracks with keywords and genre metadata to enhance sync discovery and cross-team asset visibility</li>
+        <li>Tracked artist tour dates and locations to support public performance licensing and sync outreach</li>
+      </ul>
+
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-num">50–60</span>
+          <span class="metric-label">NBC Sports cue sheet entries verified per cycle</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">200+</span>
+          <span class="metric-label">Sync placements cataloged across TV, film, trailer, advertising</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">10–20</span>
+          <span class="metric-label">DISCO playlists created and categorized per brief cycle</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: DATABASE WORK -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Database Administration & Operations</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div>
+          <p class="case-title">Microsoft Access Risk Register, Process Improvement Initiative</p>
+          <p class="case-org">Inovalon (Healthcare Technology) &nbsp;·&nbsp; Technical Intern &nbsp;·&nbsp; Jun – Aug 2022</p>
+        </div>
+        <span class="case-badge badge-ops">Database Operations</span>
+      </div>
+
+      <p class="case-body">
+        Identified that Inovalon's existing risk tracking system, an Excel spreadsheet, was creating operational inefficiencies and limiting the organization's ability to catalog, query, and report on risk data at scale. Designed and built a replacement risk register in Microsoft Access, then presented the migration to upper management and facilitated its adoption across the Security Governance and Strategy team.
+      </p>
+
+      <ul class="case-details">
+        <li>Migrated the company's risk tracking from an Excel spreadsheet to a structured Microsoft Access database, enabling relational data management and improved query capability</li>
+        <li>Designed the database architecture to catalog and track organizational risk across multiple simultaneous workstreams</li>
+        <li>Presented the completed system to upper management and conducted handoff to ensure team adoption</li>
+        <li>Maintained compliance documentation and audit-ready records across data governance workflows throughout the internship</li>
+      </ul>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div>
+          <p class="case-title">Corporate Security Intern, Audit & Compliance Tracking</p>
+          <p class="case-org">Inovalon (Healthcare Technology) &nbsp;·&nbsp; Jun – Aug 2021</p>
+        </div>
+        <span class="case-badge badge-ops">Compliance Operations</span>
+      </div>
+
+      <p class="case-body">
+        Supported the Corporate Security team in tracking policy gaps, incidents, and compliance issues across a regulated enterprise environment, developing foundational skills in structured data tracking, audit documentation, and cross-functional reporting that directly apply to ASCAP's performance data reconciliation workflows.
+      </p>
+
+      <ul class="case-details">
+        <li>Tracked policy gaps, incidents, and issues to ensure remediation and compliance with regulations and policy controls</li>
+        <li>Reviewed and maintained audit incident reports and gathered evidence to support policy compliance</li>
+        <li>Improved the company's policy gap tracker and updated requirements and controls within policy language to support future audits</li>
+        <li>Created and published a security bulletin on the company intranet; presented findings to upper management</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 3: TECHNICAL EDUCATION -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Technical Foundation</h2>
+    </div>
+
+    <p style="font-size:0.9rem; color:var(--ink-soft); line-height:1.8; margin-bottom:1.5rem;">
+      My undergraduate degree in Information Technology from Delaware State University provided a structured foundation in database systems, data analysis, and software engineering, directly relevant to the analytical and technical requirements of ASCAP's TV Distribution function.
+    </p>
+
+    <div class="course-grid">
+      <div class="course-item highlight">Database Administration</div>
+      <div class="course-item highlight">Database Management</div>
+      <div class="course-item highlight">Data Analytics</div>
+      <div class="course-item highlight">Human Computer Interaction</div>
+      <div class="course-item">Software Engineering</div>
+      <div class="course-item">Mobile Computing</div>
+      <div class="course-item">Stochastic Computing</div>
+      <div class="course-item">Elements of Computer Programming I & II</div>
+    </div>
+
+    <div class="case-card" style="margin-top:1.5rem; border-left-color: var(--gold);">
+      <div class="case-card-header">
+        <div>
+          <p class="case-title">Undergraduate Honors Thesis</p>
+          <p class="case-org">Delaware State University &nbsp;·&nbsp; 2023 &nbsp;·&nbsp; Summa Cum Laude, Premier Platinum Scholar</p>
+        </div>
+        <span class="case-badge badge-music">Research</span>
+      </div>
+      <p class="case-body">
+        <em>Speech-based Emotional Recognition using Convolutional Neural Networks</em>, programmed machine learning models to analyze speech audio and identify emotional undertones for improved sentiment tagging. This research sits at the intersection of audio analysis and data systems, demonstrating both technical fluency and a long-standing engagement with how sound data can be classified, processed, and made meaningful.
+      </p>
+    </div>
+
+    <div style="margin-top:1rem; padding:1.25rem 1.5rem; border:1px solid var(--rule); background:var(--paper-warm);">
+      <span style="font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-muted); display:block; margin-bottom:0.75rem;">Academic Honors</span>
+      <p style="font-size:0.85rem; color:var(--ink-soft); line-height:1.7;">President's List (3 years) &nbsp;·&nbsp; Dean's List &nbsp;·&nbsp; Premier Platinum Scholarship &nbsp;·&nbsp; Apple Propel Scholar &nbsp;·&nbsp; National Society of Collegiate Scholars &nbsp;·&nbsp; National Society of Black Engineers &nbsp;·&nbsp; National Society of Leadership and Success</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4: INDUSTRY RESEARCH -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Industry Research</h2>
+    </div>
+
+    <div class="research-block">
+      <p class="research-title">Remixing the Music Industry: Strategies for 21st Century Record Labels</p>
+      <p class="research-meta">Graduate Capstone &nbsp;·&nbsp; Carnegie Mellon University, Heinz College &nbsp;·&nbsp; 2025</p>
+      <p class="research-body">
+        A team research project analyzing how independent labels in the UK and US can grow revenue streams, optimize DSP strategy, and build sustained engagement with Gen Z and Gen Alpha audiences. Conducted primary research through executive interviews with music industry professionals, producing a full report and presentation with actionable recommendations on catalog strategy, CRM integration, and platform partnerships.
+      </p>
+      <p class="research-body">
+        The research required structured analysis of how music data flows through the licensing ecosystem, from catalog management to distribution to performance reporting, developing a working understanding of the systems that ASCAP sits at the center of.
+      </p>
+      <div class="interview-tags">
+        <span class="itag">Position Music</span>
+        <span class="itag">Beatport</span>
+        <span class="itag">Rostrum Records</span>
+        <span class="itag">DSP Strategy</span>
+        <span class="itag">Catalog Management</span>
+        <span class="itag">Platform Partnerships</span>
+        <span class="itag">Direct-to-Fan Engagement</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: SKILLS -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Skills & Tools</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <span class="skill-block-label">Music & Licensing</span>
+        <ul class="skill-list">
+          <li>Cue sheet documentation & verification</li>
+          <li>PRO compliance & reporting</li>
+          <li>Sync licensing coordination</li>
+          <li>DISCO catalog management</li>
+          <li>Metadata tagging & verification</li>
+          <li>Performance tracking</li>
+          <li>Deal tracking & audit documentation</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <span class="skill-block-label">Technical & Database</span>
+        <ul class="skill-list">
+          <li>Microsoft Access</li>
+          <li>Microsoft Excel</li>
+          <li>Microsoft Word & PowerPoint</li>
+          <li>Airtable, Notion, Asana</li>
+          <li>Jira, Trello, Monday.com</li>
+          <li>Google Drive & Workspace</li>
+          <li>YouTube Music Certificate (2026)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION ALIGNMENT -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Why ASCAP</h2>
+    </div>
+
+    <div class="mission-block">
+      <span class="mission-label">On ASCAP's Mission</span>
+      <p>
+        What I find particularly compelling about ASCAP's mission is the not-for-profit structure, the idea that nearly 90 cents of every dollar collected goes back to music creators. In a music industry where some have to choose between true expression and trends, or art appreciation and exploitation, I admire ASCAP's commitment to being supportive of composers and songwriters as they get the recognition and compensation they deserve. The TV Analyst role is an operations position, but it exists in service of something meaningful: ensuring that the people who make music are accurately credited and fairly paid. That's the kind of work I want to build a career in.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <p>Jabreneé Hussie &nbsp;·&nbsp; Upper Marlboro, MD</p>
+  <div class="contact-links">
+    <a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a>
+    <a href="tel:2408832840">(240) 883-2840</a>
+    <a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://jhussie.github.io/portfolio" target="_blank" rel="noopener">Full Portfolio</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>jhussie.github.io/portfolio/ASCAPAnalyst</p>
+  <p>Application portfolio for ASCAP TV Distribution Analyst</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
