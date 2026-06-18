@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie, Music Content Specialist | 1021 Creative Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --ink: #16171A;
+    --ink-soft: #4A4B50;
+    --ink-muted: #8A8B8E;
+    --rule: #E4E3DD;
+    --rule-light: #EFEEE9;
+    --panel: #F2F1EC;
+    --teal: #0E7C7B;
+    --teal-dark: #0A5958;
+    --teal-light: #E3F2F1;
+    --coral: #E0623F;
+    --coral-light: #FCEAE4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Sora', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .top-band { height: 4px; background: var(--teal); }
+
+  nav {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-back {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-back:hover { color: var(--teal); }
+  .nav-back::before { content: '\2190'; }
+
+  .nav-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    background: var(--teal-light);
+    padding: 0.3rem 0.75rem;
+    border: 1px solid rgba(14,124,123,0.25);
+  }
+
+  .hero {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 5rem 3rem 4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 180px; }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-statement {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 660px;
+    border-left: 3px solid var(--teal);
+    padding-left: 1.5rem;
+  }
+
+  .main { max-width: 880px; margin: 0 auto; padding: 0 3rem 6rem; }
+
+  .section { padding: 3.5rem 0; border-bottom: 1px solid var(--rule-light); }
+  .section:last-child { border-bottom: none; }
+
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem; }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    min-width: 2rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.35rem;
+    flex: 1;
+  }
+
+  .accuracy-banner {
+    background: var(--ink);
+    color: white;
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .accuracy-stat { text-align: center; }
+
+  .accuracy-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--teal);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .accuracy-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.4;
+  }
+
+  .case-card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--teal);
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-card.coral { border-left-color: var(--coral); }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  .card-title { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+
+  .card-org {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .card-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+
+  .badge-teal { color: var(--teal-dark); border-color: var(--teal); background: var(--teal-light); }
+  .badge-coral { color: var(--coral); border-color: var(--coral); background: var(--coral-light); }
+
+  .card-body { font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.25rem; }
+
+  .card-details { list-style: none; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+
+  .card-details li {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    padding: 0.35rem 0 0.35rem 1.25rem;
+    border-bottom: 1px solid var(--rule-light);
+    position: relative;
+  }
+
+  .card-details li:last-child { border-bottom: none; }
+  .card-details li::before { content: '\203A'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .workflow-step {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .workflow-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .workflow-step-text {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .skill-block { border: 1px solid var(--rule); padding: 1.25rem 1.5rem; background: var(--panel); }
+
+  .skill-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .skill-list { list-style: none; }
+
+  .skill-list li {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    padding: 0.25rem 0 0.25rem 1rem;
+    border-bottom: 1px solid var(--rule-light);
+    position: relative;
+  }
+
+  .skill-list li:last-child { border-bottom: none; }
+  .skill-list li::before { content: '\00b7'; position: absolute; left: 0; color: var(--teal); font-weight: 700; font-size: 1.1rem; line-height: 1.4; }
+
+  .contact-strip {
+    background: var(--ink);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .contact-strip p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+
+  .contact-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 1px;
+  }
+
+  .contact-links a:hover { border-color: var(--teal); color: var(--teal); }
+
+  footer {
+    background: var(--panel);
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 680px) {
+    nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    .main { padding: 0 1.5rem 4rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .accuracy-banner { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .workflow-grid { grid-template-columns: 1fr 1fr; }
+    .contact-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-band"></div>
+
+<nav>
+  <a href="https://jhussie.github.io/portfolio" class="nav-back">Portfolio</a>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--ink-muted);text-transform:uppercase;">Jabreneé Hussie</span>
+  <span class="nav-role">1021 Creative, Music Content Specialist</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Application Portfolio</div>
+  <h1>Jabreneé Hussie</h1>
+  <p class="hero-role">Metadata Validation, Content Cataloging, Quality Control, Upper Marlboro, MD (Remote)</p>
+  <p class="hero-statement">
+    The quality of music content infrastructure is invisible when it's done right and immediately obvious when it's not. My work has always lived in that invisible layer: verifying, cataloging, and validating the data that lets music actually be found, licensed, and heard by the people who need it.
+  </p>
+</div>
+
+<div class="main">
+
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Track Record in Numbers</h2>
+    </div>
+
+    <div class="accuracy-banner">
+      <div class="accuracy-stat">
+        <span class="accuracy-num">50-60</span>
+        <span class="accuracy-label">Cue sheet entries verified per cycle</span>
+      </div>
+      <div class="accuracy-stat">
+        <span class="accuracy-num">200+</span>
+        <span class="accuracy-label">Sync placements cataloged across formats</span>
+      </div>
+      <div class="accuracy-stat">
+        <span class="accuracy-num">137</span>
+        <span class="accuracy-label">Talent profiles evaluated & cataloged</span>
+      </div>
+      <div class="accuracy-stat">
+        <span class="accuracy-num">100%</span>
+        <span class="accuracy-label">Remote, deadline-driven delivery</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Metadata & Quality Control</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Cue Sheet Verification & Metadata Validation</p>
+          <p class="card-org">Position Music, Sync & Metadata Project Intern, Oct - Dec 2024</p>
+        </div>
+        <span class="card-badge badge-teal">Data Accuracy</span>
+      </div>
+      <p class="card-body">
+        Worked within a timed, high-volume review environment verifying metadata accuracy across NBC Sports programming, identifying discrepancies before they could affect royalty distribution or PRO reporting. This is the same fundamental skill set required for music content enrichment: sustained accuracy across repetitive review cycles where small errors compound at scale.
+      </p>
+      <ul class="card-details">
+        <li>Verified metadata for 50-60 NBC Sports cue sheet entries per cycle for accuracy in royalty distribution and PRO reporting</li>
+        <li>Identified and reconciled discrepancies in cue sheet content, coordinating to procure and upload missing data</li>
+        <li>Cataloged 200+ sync placements across TV, film, trailer, and advertising, maintaining accurate logs for licensing audits</li>
+        <li>Created and categorized 10-20 DISCO playlists to improve content searchability and discovery accuracy</li>
+        <li>Tagged tracks with keyword and genre metadata to enhance discoverability within the catalog system</li>
+      </ul>
+    </div>
+
+    <div class="case-card coral">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Structured Content Evaluation at Scale</p>
+          <p class="card-org">Handshake, AI Evaluation & Media Operations Fellow, Dec 2025 - Present</p>
+        </div>
+        <span class="card-badge badge-coral">Active Role</span>
+      </div>
+      <p class="card-body">
+        Currently evaluate music, audio, vocal, and visual content daily against structured rubrics in a fully remote setting, providing detailed feedback within timed task windows. This role has built direct fluency in exactly the kind of quality assurance and rubric-based review work that content enrichment teams rely on.
+      </p>
+      <div class="workflow-grid">
+        <div class="workflow-step"><span class="workflow-step-num">01</span><span class="workflow-step-text">Read training guide & pass certification</span></div>
+        <div class="workflow-step"><span class="workflow-step-num">02</span><span class="workflow-step-text">Apply task-specific rubric to content</span></div>
+        <div class="workflow-step"><span class="workflow-step-num">03</span><span class="workflow-step-text">Rate, flag & document feedback</span></div>
+        <div class="workflow-step"><span class="workflow-step-num">04</span><span class="workflow-step-text">Maintain accuracy across volume</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Remote, High-Volume Research</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Large-Scale Talent Cataloging</p>
+          <p class="card-org">Common Thread Entertainment, Talent & Project Operations Intern, Jan - May 2025</p>
+        </div>
+        <span class="card-badge badge-teal">Research & Cataloging</span>
+      </div>
+      <p class="card-body">
+        Evaluated and cataloged 137 voice-over artists in a fully remote environment, maintaining structured, audit-ready records across a high-volume review process. Conducted demographic and market research, compiling findings into organized reports used directly in team decisions.
+      </p>
+      <ul class="card-details">
+        <li>Evaluated and cataloged 137 voice-over artists with a 70% acceptance rate, applying consistent assessment criteria across a large volume of profiles</li>
+        <li>Tracked and coordinated 5+ simultaneous project pipelines, managing documentation across a distributed remote team</li>
+        <li>Conducted demographic and market research, compiling findings into structured reports for cross-functional decisions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Skills & Tools</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <span class="skill-label">Content & Metadata</span>
+        <ul class="skill-list">
+          <li>Metadata validation & research</li>
+          <li>Content cataloging & organization</li>
+          <li>Quality control & QA review</li>
+          <li>Cue sheet documentation</li>
+          <li>DISCO catalog management</li>
+          <li>Data management & curation</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <span class="skill-label">Remote & Technical</span>
+        <ul class="skill-list">
+          <li>Microsoft Excel & Office Suite</li>
+          <li>Google Drive & Workspace</li>
+          <li>Mac, iOS, and iPad proficient</li>
+          <li>Airtable, Notion, Asana, Trello</li>
+          <li>Remote, independent workflows</li>
+          <li>Deadline-driven accuracy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="contact-strip">
+  <p>Jabreneé Hussie, Upper Marlboro, MD</p>
+  <div class="contact-links">
+    <a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a>
+    <a href="tel:2408832840">(240) 883-2840</a>
+    <a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://jhussie.github.io/portfolio" target="_blank" rel="noopener">Full Portfolio</a>
+  </div>
+</div>
+
+<footer>
+  <p>jhussie.github.io/portfolio/1021Creative</p>
+  <p>Application portfolio for Music Content Specialist</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
