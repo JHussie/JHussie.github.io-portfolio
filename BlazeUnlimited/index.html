@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie, Sync Licensing Intern | Blaze Unlimited Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0C0A;
+    --bg-soft: #141410;
+    --panel: #1C1C18;
+    --panel-light: #242420;
+    --ink: #F5F3EE;
+    --ink-soft: #B8B5AC;
+    --ink-muted: #6A6860;
+    --rule: #2E2E28;
+    --rule-light: #252520;
+    --flame: #E8530A;
+    --flame-dark: #B84008;
+    --flame-light: rgba(232,83,10,0.12);
+    --gold: #D4A017;
+    --gold-light: rgba(212,160,23,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .top-band { height: 3px; background: linear-gradient(90deg, var(--flame) 0%, var(--gold) 100%); }
+
+  nav {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(12,12,10,0.95);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-back {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--flame); }
+  .nav-back::before { content: '\2190'; }
+
+  .nav-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--flame);
+    background: var(--flame-light);
+    padding: 0.3rem 0.75rem;
+    border: 1px solid rgba(232,83,10,0.3);
+  }
+
+  .hero {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 5rem 3rem 4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--flame);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 180px; }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-statement {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 660px;
+    font-style: italic;
+    border-left: 3px solid var(--flame);
+    padding-left: 1.5rem;
+  }
+
+  .main { max-width: 880px; margin: 0 auto; padding: 0 3rem 6rem; }
+
+  .section { padding: 3.5rem 0; border-bottom: 1px solid var(--rule); }
+  .section:last-child { border-bottom: none; }
+
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem; }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--flame);
+    min-width: 2rem;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+    flex: 1;
+    letter-spacing: 0.01em;
+  }
+
+  .sync-statement {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--flame);
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sync-statement-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--flame);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .sync-statement p {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .sync-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .sync-meta-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-muted);
+    background: var(--panel-light);
+  }
+
+  .case-card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--flame);
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-card.gold { border-left-color: var(--gold); }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+    font-style: italic;
+  }
+
+  .card-org {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .card-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+
+  .badge-flame { color: var(--flame); border-color: rgba(232,83,10,0.4); background: var(--flame-light); }
+  .badge-gold { color: var(--gold); border-color: rgba(212,160,23,0.4); background: var(--gold-light); }
+
+  .card-body { font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.25rem; }
+
+  .card-details { list-style: none; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+
+  .card-details li {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    padding: 0.35rem 0 0.35rem 1.25rem;
+    border-bottom: 1px solid var(--rule-light);
+    position: relative;
+  }
+
+  .card-details li:last-child { border-bottom: none; }
+  .card-details li::before { content: '\2014'; position: absolute; left: 0; color: var(--flame); font-family: 'DM Mono', monospace; font-size: 0.8rem; }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 1.25rem;
+  }
+
+  .metric { background: var(--panel); padding: 1.25rem; text-align: center; }
+
+  .metric-num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--flame);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .metric-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .skill-block { border: 1px solid var(--rule); padding: 1.25rem 1.5rem; background: var(--panel); }
+
+  .skill-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--flame);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .skill-list { list-style: none; }
+
+  .skill-list li {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    padding: 0.25rem 0 0.25rem 1rem;
+    border-bottom: 1px solid var(--rule-light);
+    position: relative;
+  }
+
+  .skill-list li:last-child { border-bottom: none; }
+  .skill-list li::before { content: '\00b7'; position: absolute; left: 0; color: var(--flame); font-weight: 700; font-size: 1.1rem; line-height: 1.4; }
+
+  .contact-strip {
+    background: var(--panel);
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .contact-strip p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+
+  .contact-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .contact-links a:hover { color: var(--flame); border-color: var(--flame); }
+
+  footer {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .project-links { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.25rem; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+
+  .proj-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 0.65rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+  }
+
+  .proj-link:hover { border-color: var(--flame); color: var(--flame); }
+  .proj-link::after { content: '\2197'; font-size: 0.8rem; }
+
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 680px) {
+    nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    .main { padding: 0 1.5rem 4rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: 1fr; }
+    .contact-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-band"></div>
+
+<nav>
+  <a href="https://jhussie.github.io/portfolio" class="nav-back">Portfolio</a>
+  <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--ink-muted);text-transform:uppercase;">Jabreneé Hussie</span>
+  <span class="nav-role">Blaze Unlimited, Sync Licensing Intern</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Application Portfolio</div>
+  <h1>Jabreneé Hussie</h1>
+  <p class="hero-role">Sync Licensing, Music Supervision, Catalog Management, Upper Marlboro, MD</p>
+  <p class="hero-statement">
+    Music supervision is not just about finding the right song. It is about understanding why it belongs in that moment, what it asks the audience to feel, and how it serves the story across an entire project. That is the level of intention I bring to sync work.
+  </p>
+</div>
+
+<div class="main">
+
+  <!-- SYNC ANALYSIS -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>On Sync Placement</h2>
+    </div>
+
+    <div class="sync-statement">
+      <span class="sync-statement-label">A Placement I Have Not Stopped Thinking About</span>
+      <p>
+        "Hunt You Down" by Lee Richardson, Jonathan Murrill, Tom Ford, James Cocozza, and Raxstar is the closing theme of each episode of Netflix's 2026 K-drama Teach You a Lesson. On the surface it is a driving, confident track. What makes the placement work is how precisely it functions within the episode structure. After watching each episode, which tends to be chaotic, emotionally taxing, or morally complicated, the song recenters you on the ERPB's motivations. It does not summarize what you just watched. It recalibrates how you feel about it. That decision to use the closing theme as a psychological reset rather than just an aesthetic flourish is the kind of intentional supervision that makes a show more watchable across a full run.
+      </p>
+      <div class="sync-meta">
+        <span class="sync-meta-item">Hunt You Down</span>
+        <span class="sync-meta-item">Teach You a Lesson (Netflix, 2026)</span>
+        <span class="sync-meta-item">Closing Theme</span>
+        <span class="sync-meta-item">Lee Richardson + Raxstar</span>
+        <span class="sync-meta-item">K-Drama OST</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYNC EXPERIENCE -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Sync Licensing Experience</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Sync & Metadata Project Intern</p>
+          <p class="card-org">Position Music, Burbank, CA, Oct - Dec 2024</p>
+        </div>
+        <span class="card-badge badge-flame">On-site Sync Operation</span>
+      </div>
+      <p class="card-body">
+        Worked inside a functioning sync licensing operation at Position Music, an independent music company with an active catalog spanning TV, film, trailer, and advertising placements. My work covered every administrative layer of the sync workflow: metadata verification, cue sheet compliance, DISCO catalog management, brief-aligned playlist curation, and licensing audit documentation.
+      </p>
+      <ul class="card-details">
+        <li>Verified metadata for 50-60 NBC Sports cue sheet entries per cycle, ensuring accuracy for royalty distribution and PRO reporting</li>
+        <li>Cataloged 200+ TV, film, trailer, and advertising placements in DISCO across production phases</li>
+        <li>Monitored and organized 10-15 quarterly ad sync placements, maintaining accurate logs for licensing audits</li>
+        <li>Created and categorized 10-20 DISCO playlists aligned with sync briefs and new releases to streamline pitching</li>
+        <li>Tagged Kings & Creatures tracks with keywords and genre metadata to enhance trailer sync discovery</li>
+        <li>Tracked artist tour dates and locations to support public performance licensing and sync outreach</li>
+      </ul>
+
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-num">200+</span>
+          <span class="metric-label">Sync placements cataloged in DISCO</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">50-60</span>
+          <span class="metric-label">Cue sheet entries verified per cycle</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">10-20</span>
+          <span class="metric-label">Brief-aligned playlists curated</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card gold">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Music Supervisor, Roots & Revelry</p>
+          <p class="card-org">Shades Collective Inc, Creative Project Coordinator, Oct 2024 - May 2025</p>
+        </div>
+        <span class="card-badge badge-gold">International Music Clearance</span>
+      </div>
+      <p class="card-body">
+        Served as music supervisor for Roots & Revelry, a diaspora documentary podcast directed by Nadia Sasso and filmed on location in Ghana. Responsible for all music decisions across 10 episodes, including clearing and securing a license from Ghanaian artist Black Sherif, selecting royalty-free music to fill remaining cues, and ensuring every placement aligned with tone, rights requirements, and budget constraints.
+      </p>
+      <ul class="card-details">
+        <li>Cleared and secured licensed music from Ghanaian artist Black Sherif for use across the documentary series</li>
+        <li>Coordinated rights verification and clearance workflows between creative, legal, and budget stakeholders</li>
+        <li>Selected and placed royalty-free music across 10 episodes to support tonal and narrative alignment</li>
+        <li>Managed all music documentation and split sheet coordination throughout the project lifecycle</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MUSIC SUPERVISION COURSEWORK -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Music Supervision Project Work</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Waiting to Exhale, Scene Remix</p>
+          <p class="card-org">Music Supervision Coursework</p>
+        </div>
+        <span class="card-badge badge-flame">Scene Supervision</span>
+      </div>
+      <p class="card-body">
+        A music supervision reimagining of the iconic Angela Bassett scene in Waiting to Exhale. Selected and placed music to reinterpret the emotional arc of the scene, examining how sound shapes narrative meaning, catharsis, and cultural resonance for Black women audiences.
+      </p>
+      <ul class="card-details">
+        <li>Analyzed scene structure, emotional arc, and character motivation to inform music selection</li>
+        <li>Selected and placed music with documented rationale for each cue decision</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://youtu.be/0ubU6m8LcCI" class="proj-link" target="_blank" rel="noopener">Watch Waiting to Exhale Scene Remix on YouTube</a>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="card-header">
+        <div>
+          <p class="card-title">The Truth About Cats & Dogs, 30-Minute Edit</p>
+          <p class="card-org">Music Supervision Coursework</p>
+        </div>
+        <span class="card-badge badge-gold">Long-Form Supervision</span>
+      </div>
+      <p class="card-body">
+        A 30-minute music supervision edit exploring how romantic comedy benefits from genre-specific cue decisions across a sustained narrative arc. Full spotting notes document placement rationale, cue timing, and editorial reasoning for each music decision across the edit.
+      </p>
+      <ul class="card-details">
+        <li>Supervised music across a 30-minute narrative arc with consistent tonal and genre coherence</li>
+        <li>Produced full spotting notes documenting each cue decision and its narrative function</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://drive.google.com/file/d/1Gm_OuRjmeTtclc6lQ_WFo8VJsGZVNWCZ/view" class="proj-link" target="_blank" rel="noopener">View Full Music Supervision Project</a>
+        <a href="https://docs.google.com/document/d/1VKxxCZQCeMA9NiTLOrmqfN-PPokHcGNJ/edit" class="proj-link" target="_blank" rel="noopener">View Spotting Notes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Skills & Tools</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <span class="skill-label">Sync & Licensing</span>
+        <ul class="skill-list">
+          <li>DISCO catalog management</li>
+          <li>Cue sheet documentation & verification</li>
+          <li>Metadata tagging & research</li>
+          <li>Sync brief review & research</li>
+          <li>Pitch playlist curation</li>
+          <li>Music clearance & rights verification</li>
+          <li>PRO compliance & reporting</li>
+          <li>Licensing audit documentation</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <span class="skill-label">Operations & Tools</span>
+        <ul class="skill-list">
+          <li>Microsoft Excel & Office Suite</li>
+          <li>Google Drive & Workspace</li>
+          <li>Airtable, Notion, Asana, Trello</li>
+          <li>Remote and independent workflows</li>
+          <li>Deadline-driven project tracking</li>
+          <li>Stakeholder communications</li>
+          <li>YouTube Music Certificate (2026)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="contact-strip">
+  <p>Jabreneé Hussie, Upper Marlboro, MD</p>
+  <div class="contact-links">
+    <a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a>
+    <a href="tel:2408832840">(240) 883-2840</a>
+    <a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://jhussie.github.io/portfolio" target="_blank" rel="noopener">Full Portfolio</a>
+  </div>
+</div>
+
+<footer>
+  <p>jhussie.github.io/portfolio/BlazeUnlimited</p>
+  <p>Application portfolio for Sync Licensing Internship</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
