@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie, Artist & Label Relations Coordinator | TouchTunes Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFDF9;
+    --ink: #1A1A1F;
+    --ink-soft: #4D4D55;
+    --ink-muted: #8C8C92;
+    --rule: #E8E5DC;
+    --rule-light: #F2F0E9;
+    --panel: #F7F4EC;
+    --magenta: #D6336C;
+    --magenta-dark: #A91E51;
+    --magenta-light: #FBEAF0;
+    --violet: #6F4FD6;
+    --violet-light: #EFEAFB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Sora', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+
+  .top-band { height: 4px; background: linear-gradient(90deg, var(--magenta) 0%, var(--violet) 100%); }
+
+  nav {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .nav-back {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-back:hover { color: var(--magenta); }
+  .nav-back::before { content: '\2190'; }
+
+  .nav-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--magenta-dark);
+    background: var(--magenta-light);
+    padding: 0.3rem 0.75rem;
+    border: 1px solid rgba(214,51,108,0.25);
+  }
+
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 3rem 4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 180px; }
+
+  h1 {
+    font-size: clamp(2.3rem, 5.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-statement {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    max-width: 660px;
+    border-left: 3px solid var(--magenta);
+    padding-left: 1.5rem;
+  }
+
+  .main { max-width: 900px; margin: 0 auto; padding: 0 3rem 6rem; }
+
+  .section { padding: 3.5rem 0; border-bottom: 1px solid var(--rule-light); }
+  .section:last-child { border-bottom: none; }
+
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2rem; }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--magenta);
+    min-width: 2rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.35rem;
+    flex: 1;
+  }
+
+  .moment-block {
+    background: var(--ink);
+    color: white;
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .moment-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .moment-block p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .case-card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--magenta);
+    padding: 2rem 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-card.violet { border-left-color: var(--violet); }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+  .card-title { font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+
+  .card-org {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .card-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+
+  .badge-magenta { color: var(--magenta-dark); border-color: var(--magenta); background: var(--magenta-light); }
+  .badge-violet { color: var(--violet); border-color: var(--violet); background: var(--violet-light); }
+
+  .card-body { font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.25rem; }
+
+  .card-details { list-style: none; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+
+  .card-details li {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    padding: 0.35rem 0 0.35rem 1.25rem;
+    border-bottom: 1px solid var(--rule-light);
+    position: relative;
+  }
+
+  .card-details li:last-child { border-bottom: none; }
+  .card-details li::before { content: '\2014'; position: absolute; left: 0; color: var(--magenta); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+
+  .campaign-framework {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  .framework-chip {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+  }
+
+  .project-links { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.25rem; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+
+  .proj-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    padding: 0.65rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+  }
+
+  .proj-link:hover { border-color: var(--magenta); color: var(--magenta-dark); }
+  .proj-link::after { content: '\2197'; font-size: 0.8rem; }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .skill-block { border: 1px solid var(--rule); padding: 1.25rem 1.5rem; background: var(--panel); }
+
+  .skill-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--magenta-dark);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .skill-list { list-style: none; }
+
+  .skill-list li {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    padding: 0.25rem 0 0.25rem 1rem;
+    border-bottom: 1px solid var(--rule-light);
+    position: relative;
+  }
+
+  .skill-list li:last-child { border-bottom: none; }
+  .skill-list li::before { content: '\00b7'; position: absolute; left: 0; color: var(--magenta); font-weight: 700; font-size: 1.1rem; line-height: 1.4; }
+
+  .contact-strip {
+    background: var(--ink);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .contact-strip p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+
+  .contact-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 1px;
+  }
+
+  .contact-links a:hover { border-color: var(--magenta); color: var(--magenta); }
+
+  footer {
+    background: var(--panel);
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 680px) {
+    nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+    .main { padding: 0 1.5rem 4rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .campaign-framework { grid-template-columns: 1fr 1fr; }
+    .contact-strip { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-band"></div>
+
+<nav>
+  <a href="https://jhussie.github.io/portfolio" class="nav-back">Portfolio</a>
+  <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--ink-muted);text-transform:uppercase;">Jabreneé Hussie</span>
+  <span class="nav-role">TouchTunes, Artist & Label Relations</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Application Portfolio</div>
+  <h1>Jabreneé Hussie</h1>
+  <p class="hero-role">Artist & Label Relations, Campaign Coordination, Sync Licensing, DMV / Open to NYC Hybrid</p>
+  <p class="hero-statement">
+    My first concert was Tori Kelly. Even in a packed venue, being seated on the floor made the whole night feel intimate. That feeling, a shared room making music feel personal, is what TouchTunes creates for people every day. I want to help build the artist and label relationships that make that possible.
+  </p>
+</div>
+
+<div class="main">
+
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Artist & Label Relations Experience</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Brand Partnership & Sponsorship Coordination</p>
+          <p class="card-org">Shades Collective Inc, Creative Project Coordinator, Oct 2024 - May 2025</p>
+        </div>
+        <span class="card-badge badge-magenta">Partnerships</span>
+      </div>
+      <p class="card-body">
+        Coordinated brand sponsorship outreach for an independent documentary production, designing custom decks and managing relationships with tech and lifestyle brands. When initial conversations didn't land, I learned to pivot in real time, reassessing budget constraints to find alternative partners and resources that kept the production on schedule.
+      </p>
+      <ul class="card-details">
+        <li>Secured tech and lifestyle brand sponsorships through custom outreach decks, personalized communications, and relationship follow-up</li>
+        <li>Managed sponsorship pivots when initial brand outreach fell through, identifying alternative partners within budget constraints</li>
+        <li>Served as music supervisor for Roots & Revelry, clearing licensed music from Ghanaian artist Black Sherif and coordinating rights workflows across creative, legal, and budget stakeholders</li>
+        <li>Built content production decks aligning documentary and brand partnership deliverables during international production in Ghana</li>
+      </ul>
+    </div>
+
+    <div class="case-card violet">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Sync Licensing & Metadata Operations</p>
+          <p class="card-org">Position Music, Sync & Metadata Project Intern, Oct - Dec 2024</p>
+        </div>
+        <span class="card-badge badge-violet">Music Operations</span>
+      </div>
+      <p class="card-body">
+        Worked inside an active sync licensing operation handling the same metadata accuracy and catalog management work that underlies strong artist and label relationships, ensuring that every placement and partnership is backed by clean, audit-ready data.
+      </p>
+      <ul class="card-details">
+        <li>Verified metadata for 50-60 NBC Sports cue sheet entries per cycle for accuracy in royalty distribution and PRO reporting</li>
+        <li>Cataloged 200+ sync placements across TV, film, trailer, and advertising in DISCO</li>
+        <li>Tracked artist tour dates and locations to support public performance licensing and sync outreach</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Campaign & Activation Strategy</h2>
+    </div>
+
+    <div class="case-card">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Canada Dry, Branded Content Pitch</p>
+          <p class="card-org">Carnegie Mellon University, Branded Entertainment Coursework</p>
+        </div>
+        <span class="card-badge badge-magenta">Brand Strategy</span>
+      </div>
+      <p class="card-body">
+        Evaluated Canada Dry as a brand and proposed a new form of branded content for their promotion, applying a structured framework covering brand purpose, target audience, content scope, media integration, campaign forecast, and content evaluation.
+      </p>
+      <div class="campaign-framework">
+        <div class="framework-chip">Brand Purpose</div>
+        <div class="framework-chip">Target Audience</div>
+        <div class="framework-chip">Content Scope</div>
+        <div class="framework-chip">Media Integration</div>
+        <div class="framework-chip">Campaign Forecast</div>
+        <div class="framework-chip">Content Evaluation</div>
+      </div>
+      <div class="project-links">
+        <a href="https://canva.link/5fa8cqrvjwmtrlr" class="proj-link" target="_blank" rel="noopener">View Canada Dry Branded Content Pitch</a>
+      </div>
+    </div>
+
+    <div class="case-card violet">
+      <div class="card-header">
+        <div>
+          <p class="card-title">Insecure, TV Marketing Plan</p>
+          <p class="card-org">Carnegie Mellon University, TV Marketing Coursework, Project Lead</p>
+        </div>
+        <span class="card-badge badge-violet">Campaign Lead</span>
+      </div>
+      <p class="card-body">
+        Led a full marketing plan for HBO's Insecure as though the show were launching for the first time, building brand positioning, a campaign tagline and hook, a campaign calendar, and a mix of on-air, experiential, and digital and social activations. Cultural fluency with the show's target audience made this project a natural fit to lead.
+      </p>
+      <div class="campaign-framework">
+        <div class="framework-chip">Goal</div>
+        <div class="framework-chip">Brand Positioning</div>
+        <div class="framework-chip">Tagline & Hook</div>
+        <div class="framework-chip">Campaign Calendar</div>
+        <div class="framework-chip">On-Air Activation</div>
+        <div class="framework-chip">Experiential & Digital</div>
+      </div>
+      <div class="project-links">
+        <a href="https://canva.link/ddgo16exkorbzy9" class="proj-link" target="_blank" rel="noopener">View Insecure TV Marketing Plan</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section fade-in">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Skills & Tools</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <span class="skill-label">Artist & Label Relations</span>
+        <ul class="skill-list">
+          <li>Partner & artist communications</li>
+          <li>Campaign coordination & execution</li>
+          <li>Brand sponsorship outreach</li>
+          <li>Music clearance & rights coordination</li>
+          <li>Sync licensing & metadata management</li>
+          <li>Release calendar & tracker maintenance</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <span class="skill-label">Campaign Strategy & Tools</span>
+        <ul class="skill-list">
+          <li>Brand positioning & activation strategy</li>
+          <li>Performance tracking & reporting</li>
+          <li>Google Workspace & Microsoft Excel</li>
+          <li>Canva, Airtable, Notion, Asana</li>
+          <li>Cross-functional collaboration</li>
+          <li>Cultural & pop culture fluency</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="contact-strip">
+  <p>Jabreneé Hussie, Upper Marlboro, MD</p>
+  <div class="contact-links">
+    <a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a>
+    <a href="tel:2408832840">(240) 883-2840</a>
+    <a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://jhussie.github.io/portfolio" target="_blank" rel="noopener">Full Portfolio</a>
+  </div>
+</div>
+
+<footer>
+  <p>jhussie.github.io/portfolio/TouchTunes</p>
+  <p>Application portfolio for Coordinator, Artist & Label Relations</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
