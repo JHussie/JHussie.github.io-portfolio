@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jabreneé Hussie — Creative Coordinator, Animated Original Series, Amazon Studios</title>
+<title>Jabreneé Hussie — Creative Coordinator, Amazon Studios Animation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,10 +22,10 @@
   .wrap{max-width:880px;margin:0 auto;padding:72px 24px 100px;}
 
   .eyebrow{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:18px;}
-  h1{font-family:'DM Serif Display',serif;font-size:46px;line-height:1.1;font-weight:400;margin:0 0 6px;color:var(--charcoal);}
+  h1{font-family:'DM Serif Display',serif;font-size:46px;line-height:1.1;font-weight:400;margin:0 0 6px;}
   .role{font-family:'DM Mono',monospace;font-size:15px;color:var(--charcoal-soft);margin-bottom:36px;}
 
-  .lede{font-size:19px;line-height:1.62;max-width:660px;margin-bottom:56px;color:var(--charcoal);}
+  .lede{font-size:19px;line-height:1.62;max-width:660px;margin-bottom:56px;}
   .lede em{font-style:italic;color:var(--red);}
 
   h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:26px;margin:0 0 22px;border-bottom:1px solid var(--line);padding-bottom:14px;}
@@ -33,10 +33,20 @@
 
   section{margin-bottom:64px;}
 
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:20px 22px;text-align:center;}
+  .stat-num{font-family:'DM Serif Display',serif;font-size:36px;color:var(--red);line-height:1;}
+  .stat-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--charcoal-soft);margin-top:6px;}
+
   .cards{display:grid;gap:18px;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:24px 26px;}
   .card .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
   .card p{font-size:15.5px;line-height:1.6;color:var(--charcoal-soft);margin:0;}
+
+  .sensibility-box{background:var(--card-dark);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:2px;padding:28px 30px;margin-bottom:64px;}
+  .sensibility-box .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+  .sensibility-box p{font-size:17px;line-height:1.72;color:var(--charcoal);margin:0 0 14px;}
+  .sensibility-box p:last-child{margin:0;}
 
   .project{background:var(--card);border:1px solid var(--line);border-radius:2px;margin-bottom:24px;overflow:hidden;}
   .project-header{padding:22px 26px 16px;}
@@ -44,27 +54,8 @@
   .project-header p{font-size:15px;line-height:1.6;color:var(--charcoal-soft);margin:0 0 16px;}
   .project-links{display:flex;gap:12px;flex-wrap:wrap;padding:0 26px 22px;}
   .project-embed{padding:0 26px 22px;}
-
   .yt-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:2px;}
   .yt-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
-
-  .brief-box{background:var(--card-dark);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:2px;padding:24px 26px;margin-bottom:28px;}
-  .brief-box .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:14px;}
-  .brief-meta{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--charcoal-soft);margin-bottom:16px;line-height:1.7;}
-  .brief-body{font-size:15px;line-height:1.7;color:var(--charcoal);}
-  .brief-body p{margin:0 0 12px;}
-  .brief-body p:last-child{margin:0;}
-  .brief-keywords{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
-  .kw{font-family:'DM Mono',monospace;font-size:12px;background:var(--cream);border:1px solid var(--line);padding:4px 10px;border-radius:2px;color:var(--charcoal-soft);}
-
-  .spotify-wrap{margin-bottom:28px;border-radius:12px;overflow:hidden;}
-
-  .tracklist{display:grid;gap:14px;}
-  .track{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:16px 20px;background:var(--card);border:1px solid var(--line);border-radius:2px;}
-  .track-num{font-family:'DM Mono',monospace;font-size:13px;color:var(--red);padding-top:2px;}
-  .track-title{font-weight:600;font-size:15px;margin-bottom:2px;}
-  .track-artist{font-family:'DM Mono',monospace;font-size:12px;color:var(--charcoal-soft);margin-bottom:8px;}
-  .track-note{font-size:14.5px;line-height:1.6;color:var(--charcoal-soft);}
 
   .btn{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.04em;text-decoration:none;border:1px solid var(--charcoal);color:var(--charcoal);padding:10px 18px;border-radius:2px;transition:.15s;display:inline-block;}
   .btn:hover{background:var(--charcoal);color:var(--cream);}
@@ -79,50 +70,75 @@
   @media(max-width:600px){
     h1{font-size:32px;}
     .wrap{padding:48px 18px 80px;}
-    .track{grid-template-columns:22px 1fr;}
+    .stat-row{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="eyebrow">Application — Netflix Animation Studios</div>
+  <div class="eyebrow">Application — Amazon Studios</div>
   <h1>Jabreneé Hussie</h1>
-  <div class="role">Administrative Assistant, Music Creative & Production · Burbank, CA</div>
+  <div class="role">Creative Coordinator, Animated Original Series · Culver City, CA</div>
 
   <p class="lede">
-    I still go back and listen to <em>I Choose You</em> by Alessia Cara from The Willoughbys. Every single time, it does the same thing it did the first time I watched the film. That's what music inside animation does when it's chosen well. This page is a walk through the music supervision work I've actually done, and a demonstration of how I think when given a brief.
+    Good coordination is invisible. When it's working, creative people get to focus on the work -- pitches move forward, deliverables land on time, executives have what they need before they ask for it. That's the job I want to do, and this page is a walk through the evidence that I can do it.
   </p>
 
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">16</div>
+      <div class="stat-label">Episodes produced end-to-end at CMU AMT Lab</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Simultaneous project pipelines tracked at Common Thread</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">137</div>
+      <div class="stat-label">Talent records researched and cataloged, 70% acceptance rate</div>
+    </div>
+  </div>
+
   <section>
-    <h2>Relevant Experience</h2>
+    <h2>Coordination Experience</h2>
     <div class="cards">
       <div class="card">
-        <div class="label">Position Music — Synch & Licensing Intern</div>
-        <h3>DISCO, playlist curation, and metadata at scale</h3>
-        <p>Built and categorized 10-20 DISCO playlists against creative briefs, working directly inside a major music database and licensing platform. Cataloged 200+ TV, film, trailer, and advertising placements. Verified metadata across 50-60 NBC Sports cue sheet entries per cycle.</p>
+        <div class="label">Arts Management & Technology Laboratory, CMU — Podcast Producer</div>
+        <h3>16-episode content pipeline, end to end</h3>
+        <p>Managed the full production pipeline for 16 episodes across two documentary-style series in partnership with the Frank-Ratchye STUDIO for Creative Inquiry -- from pre-production through multi-platform distribution across a distributed team. Identified an audience retention issue mid-run, restructured the series format based on analytics, and drove measurable improvement in discoverability. Led solo production of a full episode with documentary filmmaker Roopa Gogineni.</p>
+      </div>
+      <div class="card">
+        <div class="label">Common Thread Entertainment — Talent Management Intern</div>
+        <h3>Multi-pipeline project tracking and research</h3>
+        <p>Tracked and coordinated 5+ simultaneous project pipelines, managing documentation, deliverables, and communications across a distributed team. Conducted targeted demographic and market research, compiling findings into structured presentations for cross-functional decisions. Scouted 137 voice-over artists with a 70% acceptance rate, maintaining accurate, searchable database records under deadline pressure.</p>
       </div>
       <div class="card">
         <div class="label">Shades Collective — Roots & Revelry Production Assistant</div>
-        <h3>Music supervision across 10 episodes</h3>
-        <p>Oversaw music direction and clearance considerations as podcast music supervisor across 10 episodes of a podcast produced alongside a documentary based in Ghana, ensuring tone, rights alignment, and budget compatibility with international artist teams.</p>
-      </div>
-      <div class="card">
-        <div class="label">Carnegie Mellon University — Entertainment Industry Management</div>
-        <h3>Graduate research in label and publishing structures</h3>
-        <p>Led executive interviews with Position Music, Beatport, and Rostrum Records on catalog management, publishing structures, and synchronization licensing as part of a full industry research capstone.</p>
+        <h3>International production coordination</h3>
+        <p>Coordinated all production logistics for an international documentary podcast with on-location production based in Ghana -- managing schedules, asset workflows, stakeholder communications, and brand partnership deliverables simultaneously. Built original content production decks from scratch and secured tech and lifestyle sponsorships through direct outreach and relationship management with external partners.</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Supervised Edits & Spotting Work</h2>
+    <h2>Storytelling Sensibility</h2>
+    <div class="sensibility-box">
+      <div class="label">What I care about bringing to screen</div>
+      <p>The stories I am most drawn to are the ones that sit at the intersection of three things: diaspora narratives and culturally diverse perspectives that rarely get centered in mainstream content; music and sound that shape emotional experience rather than just accompany it; and underdog stories about people who achieved something great against the odds.</p>
+      <p>Those three things are connected for me. The music that moves me most tends to come from people who had to fight for the right to make it. The stories I find most compelling tend to follow people navigating between worlds -- cultural, generational, economic -- and finding something true on the other side. Animation is one of the few formats where all of that can coexist without compromise, where the visual and the emotional and the sonic can do exactly what they need to do in the same frame.</p>
+      <p>That's why I want to be in this room specifically, not just in a coordination role generally.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Content Analysis Work</h2>
 
     <div class="project">
       <div class="project-header">
-        <div class="label">Music Supervision Class — Scene Edit</div>
+        <div class="label">Music Supervision Coursework — Scene Edit</div>
         <h3>Waiting to Exhale — Angela Bassett Scene Remix</h3>
-        <p>A re-supervised scene from Waiting to Exhale, building an original music selection for an existing cut. The goal was to serve the emotional subtext of the scene, not just the surface moment, choosing music that does something the dialogue alone can't.</p>
+        <p>A re-supervised scene from Waiting to Exhale demonstrating close content analysis: reading what a scene needs emotionally, then finding and placing music that serves that need rather than just filling space. This is the kind of critical engagement with existing content that creative development coordination requires -- understanding what's working, what's missing, and why specific creative choices land the way they do.</p>
       </div>
       <div class="project-embed">
         <div class="yt-wrap">
@@ -133,127 +149,34 @@
 
     <div class="project">
       <div class="project-header">
-        <div class="label">Music Supervision Class — 30-Minute Edit & Spotting Notes</div>
+        <div class="label">Music Supervision Coursework — Script Breakdown</div>
+        <h3>My Best Friend's Wedding — Full Music Breakdown</h3>
+        <p>A complete script breakdown documenting every music reference with scene context, usage type, licensing cost estimates, and clearance strategy. Script breakdown requires the same close reading of narrative structure and scene function that creative development tracking does -- understanding what every scene is doing dramatically before you can evaluate whether the creative elements serve it.</p>
+      </div>
+      <div class="project-links">
+        <a class="btn small" href="Script_Breakdown_Jabrenee_Hussie.docx" download>Download Script Breakdown</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="label">Music Supervision Coursework — 30-Minute Edit & Spotting Notes</div>
         <h3>The Truth About Cats and Dogs — Full Edit</h3>
-        <p>A 30-minute supervised edit of The Truth About Cats and Dogs, including full spotting notes documenting each cue, placement rationale, emotional function, and timing. Spotting is the process of watching a cut and deciding where music goes, what it should do, and why -- it's where music supervision actually begins.</p>
+        <p>A 30-minute supervised edit with full spotting notes -- the document that maps where music enters a cut, what it needs to do, and why. Spotting requires sustained, detailed attention to how a piece of content works moment by moment, which is exactly the kind of close content engagement that providing notes on submitted pitches and episodes requires.</p>
       </div>
       <div class="project-links">
         <a class="btn small" href="https://drive.google.com/file/d/1Gm_OuRjmeTtclc6lQ_WFo8VJsGZVNWCZ/view?usp=sharing" target="_blank">Watch the Edit</a>
         <a class="btn small" href="https://docs.google.com/document/d/1VKxxCZQCeMA9NiTLOrmqfN-PPokHcGNJ/edit?usp=sharing" target="_blank">View Spotting Notes</a>
       </div>
     </div>
-  </section>
 
-  <section>
-    <h2>Brief Response — Meridian (Working Title)</h2>
-
-    <div class="brief-box">
-      <div class="label">Creative Brief — Confidential</div>
-      <div class="brief-meta">
-        From: Music Supervision, Netflix Animation Studios<br>
-        To: Sync Licensing Partner<br>
-        Re: Feature Brief — "Meridian" (Working Title)
-      </div>
-      <div class="brief-body">
-        <p>We are building a preliminary mood playlist for the film's second act, which centers on a series of late-night conversations between a 17-year-old girl of West African and Caribbean descent and her grandmother on a back porch. The scenes are slow, intimate, and emotionally layered -- the grandmother is sharing stories about home that the protagonist has never heard before.</p>
-        <p>Music in these scenes should feel like memory, like distance, like something loved from far away. Genres welcome: Afrobeats, Afropop, soul, R&B, acoustic, neo-soul, Afro-folk, ambient with melodic elements. Lyrical or instrumental both welcome.</p>
-        <div class="brief-keywords">
-          <span class="kw">intimate</span>
-          <span class="kw">nostalgic</span>
-          <span class="kw">diasporic</span>
-          <span class="kw">tender</span>
-          <span class="kw">grounded</span>
-          <span class="kw">luminous</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="spotify-wrap">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/10JGADdIrdOzmlcsYjGQ0i?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-
-    <div class="tracklist">
-
-      <div class="track">
-        <div class="track-num">01</div>
-        <div>
-          <div class="track-title">GORGEOUS</div>
-          <div class="track-artist">Muhsinah</div>
-          <div class="track-note">This song evokes the feeling of finding safe harbor in someone. From the brief I could envision the relationship between granddaughter and grandmother, and how this song encapsulates that.</div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-num">02</div>
-        <div>
-          <div class="track-title">Head in a Jar</div>
-          <div class="track-artist">Khamari</div>
-          <div class="track-note">This song evokes a sinking feeling as you disappear into deep feelings. I envision the granddaughter sinking into comfort, safety, and the sometimes overwhelming feeling when you learn more about the past and the complicated emotions that can come up.</div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-num">03</div>
-        <div>
-          <div class="track-title">Sunny Days</div>
-          <div class="track-artist">Kennedy Ryon</div>
-          <div class="track-note">Bluesy like the past, and lyrically illustrating how the truth coming to light may not always feel good in the moment, but it's necessary to move on to better pastures.</div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-num">04</div>
-        <div>
-          <div class="track-title">Martha</div>
-          <div class="track-artist">Kennedy Ryon</div>
-          <div class="track-note">This song tells a story of someone's past, and from that, you can illuminate and redirect someone else's present.</div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-num">05</div>
-        <div>
-          <div class="track-title">Some Nights I Dream of Doors</div>
-          <div class="track-artist">Obongjayar</div>
-          <div class="track-note">This song sounds incredibly nostalgic, like you're enveloped in memories, hopes, and fears simultaneously. The musicality sounds distant from reality and presence.</div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-num">06</div>
-        <div>
-          <div class="track-title">Mama Don't Worry</div>
-          <div class="track-artist">KIRBY</div>
-          <div class="track-note">This song has a deep connection to the brief and the complicated feelings of being a new generation of a family -- wanting to create a life for yourself but also honor those that came before you. You honor their sacrifices, listen to their story, and try to forge your own path, only hoping you are making them proud.</div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-num">07</div>
-        <div>
-          <div class="track-title">River</div>
-          <div class="track-artist">Trevor Jackson</div>
-          <div class="track-note">This song evokes grief, desperation, and the acknowledgement that your path or choices may not have been the best -- but if you could, you would change things. At this pivotal point in the film, we truly want to feel the reality of these feelings so our characters can shed this crushing weight and start anew.</div>
-        </div>
-      </div>
-
-      <div class="track">
-        <div class="track-num">08</div>
-        <div>
-          <div class="track-title">Breathe</div>
-          <div class="track-artist">Jaz Elise</div>
-          <div class="track-note">This conversation allows both characters to release the heaviness and changes the trajectory of their story. This song does the job of letting you feel the weight while also letting you know it won't last long, and that these feelings will change.</div>
-        </div>
-      </div>
-
-    </div>
   </section>
 
   <div class="footer">
     <div class="contact">jabrenee612@gmail.com · (240) 883-2840</div>
     <div class="btnrow">
-      <a class="btn primary" href="NetflixAnimationAssistant/JabreneéHussieResume_Netflix_Administrative Assistant Music Creative and Production.pdf">Resume</a>
-      <a class="btn" href="NetflixAnimationAssistant/JabreneéHussieCoverLetter_Netflix_Administrative Assistant Music Creative and Production.pdf</a>
+      <a class="btn primary" href="JabreneéHussieResume_AmazonStudios_Creative Coordinator Animation.docx">Resume</a>
+      <a class="btn" href="https://jhussie.github.io/portfolio">Full Portfolio</a>
     </div>
   </div>
 
