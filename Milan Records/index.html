@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie — Specialist, Soundtracks Production, Milan Records</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F1EA;
+    --charcoal:#2A2724;
+    --charcoal-soft:#5C574F;
+    --red:#B3402A;
+    --line:#DAD4C6;
+    --card:#ECE7DC;
+    --card-dark:#E3DDCF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--charcoal);font-family:'Instrument Sans',sans-serif;}
+  .wrap{max-width:880px;margin:0 auto;padding:72px 24px 100px;}
+
+  .eyebrow{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:18px;}
+  h1{font-family:'DM Serif Display',serif;font-size:46px;line-height:1.1;font-weight:400;margin:0 0 6px;}
+  .role{font-family:'DM Mono',monospace;font-size:15px;color:var(--charcoal-soft);margin-bottom:36px;}
+
+  .lede{font-size:19px;line-height:1.62;max-width:660px;margin-bottom:56px;}
+  .lede em{font-style:italic;color:var(--red);}
+
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:26px;margin:0 0 22px;border-bottom:1px solid var(--line);padding-bottom:14px;}
+  h3{font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:18px;margin:0 0 10px;}
+
+  section{margin-bottom:64px;}
+
+  .cards{display:grid;gap:18px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:24px 26px;}
+  .card .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+  .card p{font-size:15.5px;line-height:1.6;color:var(--charcoal-soft);margin:0;}
+
+  .sensibility-box{background:var(--card-dark);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:2px;padding:28px 30px;margin-bottom:64px;}
+  .sensibility-box .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+  .sensibility-box p{font-size:17px;line-height:1.72;color:var(--charcoal);margin:0 0 14px;}
+  .sensibility-box p:last-child{margin:0;}
+
+  .brief-box{background:var(--card-dark);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:2px;padding:24px 26px;margin-bottom:28px;}
+  .brief-box .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:14px;}
+  .brief-meta{font-family:'DM Mono',monospace;font-size:12.5px;color:var(--charcoal-soft);margin-bottom:16px;line-height:1.7;}
+  .brief-body{font-size:15px;line-height:1.7;color:var(--charcoal);}
+  .brief-body p{margin:0 0 12px;}
+  .brief-body p:last-child{margin:0;}
+  .brief-keywords{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .kw{font-family:'DM Mono',monospace;font-size:12px;background:var(--cream);border:1px solid var(--line);padding:4px 10px;border-radius:2px;color:var(--charcoal-soft);}
+
+  .spotify-wrap{margin-bottom:28px;border-radius:12px;overflow:hidden;}
+
+  .tracklist{display:grid;gap:14px;}
+  .track{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:16px 20px;display:grid;grid-template-columns:28px 1fr;gap:14px;}
+  .track-num{font-family:'DM Mono',monospace;font-size:13px;color:var(--red);padding-top:2px;}
+  .track-title{font-weight:600;font-size:15px;margin-bottom:2px;}
+  .track-artist{font-family:'DM Mono',monospace;font-size:12px;color:var(--charcoal-soft);margin-bottom:8px;}
+  .track-note{font-size:14.5px;line-height:1.6;color:var(--charcoal-soft);}
+
+  .btn{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.04em;text-decoration:none;border:1px solid var(--charcoal);color:var(--charcoal);padding:10px 18px;border-radius:2px;transition:.15s;display:inline-block;}
+  .btn:hover{background:var(--charcoal);color:var(--cream);}
+  .btn.primary{background:var(--red);border-color:var(--red);color:var(--cream);}
+  .btn.primary:hover{background:var(--charcoal);border-color:var(--charcoal);}
+
+  .footer{border-top:1px solid var(--line);padding-top:32px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;}
+  .footer .contact{font-family:'DM Mono',monospace;font-size:13px;color:var(--charcoal-soft);}
+  .btnrow{display:flex;gap:12px;flex-wrap:wrap;}
+
+  @media(max-width:600px){
+    h1{font-size:32px;}
+    .wrap{padding:48px 18px 80px;}
+    .track{grid-template-columns:22px 1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Application — Milan Records / Sony Music Entertainment</div>
+  <h1>Jabreneé Hussie</h1>
+  <div class="role">Specialist, Soundtracks Production · Los Angeles, CA</div>
+
+  <p class="lede">
+    Soundtracks are the part of music I have always been most fascinated by -- not because they are different from other music, but because of the specific relationship they have to something else. A scene, a character, a moment that the music makes <em>permanent</em> in a way the visuals alone cannot. This page is a walk through the music and content operations background I'd bring to Milan Records.
+  </p>
+
+  <section>
+    <h2>Music & Content Operations Experience</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Position Music — Synch & Licensing Intern</div>
+        <h3>Catalog metadata, DISCO, and multi-platform distribution tracking</h3>
+        <p>Built and categorized 10-20 DISCO playlists against creative briefs, tagged catalog tracks with keywords and genre metadata to enhance sync discoverability, and cataloged 200+ TV, film, trailer, and advertising placements. Tracked artist tour dates to support public performance licensing and marketing coordination across platforms.</p>
+      </div>
+      <div class="card">
+        <div class="label">Shades Collective — Roots & Revelry Production Assistant</div>
+        <h3>Music asset coordination and stakeholder communications</h3>
+        <p>Collected music selections from international artists, coordinated all logistics around music assets and credits from pre-production through delivery, and managed brand partner communications ensuring assets and information reached all relevant stakeholders on time. Oversaw music direction across 10 episodes as podcast music supervisor.</p>
+      </div>
+      <div class="card">
+        <div class="label">Arts Management & Technology Laboratory, CMU — Podcast Producer</div>
+        <h3>Multi-platform content pipeline and audience analytics</h3>
+        <p>Managed 16-episode production pipeline across multiple platforms including Spotify and Apple Music. Produced monthly analytics reports tracking content performance across DSPs; restructured series format based on audience data to improve discoverability. Demonstrates the data-informed content operations thinking this role requires.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>On Soundtracks</h2>
+    <div class="sensibility-box">
+      <div class="label">Why this specifically</div>
+      <p>The music I return to most is music tied to a moment in a film or a scene in a show -- not because the music is better than other music, but because the combination of image and sound creates something neither could create alone. That relationship is what Milan Records exists to serve, and it is the part of the music industry I have been most drawn to throughout my career in sync licensing and music supervision.</p>
+      <p>My graduate capstone research at Carnegie Mellon examined how independent labels adapt to the evolving digital ecosystem -- including how DSPs, direct-to-fan strategies, and sync licensing shape how catalog music reaches audiences. That research gives me a working understanding of how a label like Milan Records fits into the broader music distribution landscape, not just as a catalog but as a business.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Brief Response — Meridian (Working Title)</h2>
+    <p style="font-size:15px;color:var(--charcoal-soft);margin-bottom:20px;max-width:640px;">A playlist built against a creative brief -- the same kind of brief-response curation I did weekly at Position Music with DISCO. Demonstrates how I think when given a tonal direction and asked to find the right music for it.</p>
+
+    <div class="brief-box">
+      <div class="label">Creative Brief — Illustrative</div>
+      <div class="brief-meta">Re: Feature Brief — "Meridian" (Working Title) · Act II mood playlist</div>
+      <div class="brief-body">
+        <p>Late-night conversations between a 17-year-old girl of West African and Caribbean descent and her grandmother. Slow, intimate, emotionally layered. Music should feel like memory, distance, something loved from far away.</p>
+        <div class="brief-keywords">
+          <span class="kw">intimate</span>
+          <span class="kw">nostalgic</span>
+          <span class="kw">diasporic</span>
+          <span class="kw">tender</span>
+          <span class="kw">grounded</span>
+          <span class="kw">luminous</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spotify-wrap">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/10JGADdIrdOzmlcsYjGQ0i?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div class="tracklist">
+      <div class="track"><div class="track-num">01</div><div><div class="track-title">GORGEOUS</div><div class="track-artist">Muhsinah</div><div class="track-note">Evokes finding safe harbor in someone. Sets the emotional container for the scene.</div></div></div>
+      <div class="track"><div class="track-num">02</div><div><div class="track-title">Head in a Jar</div><div class="track-artist">Khamari</div><div class="track-note">Sinking into the comfort and weight of hearing family history for the first time.</div></div></div>
+      <div class="track"><div class="track-num">03</div><div><div class="track-title">Sunny Days</div><div class="track-artist">Kennedy Ryon</div><div class="track-note">Bluesy like the past -- truth coming to light isn't always comfortable, but it's necessary.</div></div></div>
+      <div class="track"><div class="track-num">04</div><div><div class="track-title">Martha</div><div class="track-artist">Kennedy Ryon</div><div class="track-note">A story of someone's past that illuminates someone else's present.</div></div></div>
+      <div class="track"><div class="track-num">05</div><div><div class="track-title">Some Nights I Dream of Doors</div><div class="track-artist">Obongjayar</div><div class="track-note">Enveloped in memories, hopes, and fears simultaneously. Musically distant from reality.</div></div></div>
+      <div class="track"><div class="track-num">06</div><div><div class="track-title">Mama Don't Worry</div><div class="track-artist">KIRBY</div><div class="track-note">Honoring sacrifice, learning from the past, forging your own path -- the emotional peak.</div></div></div>
+      <div class="track"><div class="track-num">07</div><div><div class="track-title">River</div><div class="track-artist">Trevor Jackson</div><div class="track-note">The moment where both characters feel the full weight before they can release it.</div></div></div>
+      <div class="track"><div class="track-num">08</div><div><div class="track-title">Breathe</div><div class="track-artist">Jaz Elise</div><div class="track-note">The release. Lets you feel the weight while making clear it won't last.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Marketing Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="label">Graduate Coursework — TV Marketing Plan</div>
+        <h3>Insecure — Integrated Marketing Campaign</h3>
+        <p>Led a group project developing a full integrated marketing plan for Insecure, drawing on deep knowledge of the show, its audience, and Black cultural context to build a campaign strategy that spanned experiential, social, and on-air marketing. Deliverables included brand positioning, campaign calendar, goals, hooks, and tagline. Demonstrates the kind of culturally-informed, audience-specific marketing thinking that soundtrack and branded content work requires.</p>
+        <div style="margin-top:16px;">
+          <a class="btn small" href="https://canva.link/ddgo16exkorbzy9" target="_blank">View Project</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label">Graduate Coursework — Branded Entertainment</div>
+        <h3>Canada Dry — Branded Content Strategy</h3>
+        <p>Evaluated Canada Dry's existing branded content and developed a new campaign proposal grounded in the brand's purpose, target audience, and cultural positioning. Deliverables included a media integration plan, content scope, campaign forecast, and content evaluation framework. Demonstrates applied understanding of how brand partnerships work from a content and strategy perspective -- directly relevant to the brand integration and commerce-focused campaign work this role involves.</p>
+        <div style="margin-top:16px;">
+          <a class="btn small" href="https://canva.link/5fa8cqrvjwmtrlr" target="_blank">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="contact">jabrenee612@gmail.com · (240) 883-2840</div>
+    <div class="btnrow">
+      <a class="btn primary" href="JabreneéHussieResume_SonyMusic_MilanRecords_Specialist Soundtracks Production.docx">Resume</a>
+      <a class="btn" href="https://jhussie.github.io/portfolio">Full Portfolio</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
