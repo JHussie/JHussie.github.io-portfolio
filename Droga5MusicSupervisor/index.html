@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie — Music Supervisor, Droga5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F1EA;
+    --charcoal:#2A2724;
+    --charcoal-soft:#5C574F;
+    --red:#B3402A;
+    --red-light:#E8C4BA;
+    --line:#DAD4C6;
+    --card:#ECE7DC;
+    --card-dark:#E3DDCF;
+    --gold:#8B6914;
+    --gold-bg:#F7F0DC;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--charcoal);font-family:'Instrument Sans',sans-serif;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  /* HERO */
+  .hero{background:var(--charcoal);color:var(--cream);padding:64px 48px 56px;margin-bottom:72px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:var(--red);opacity:.08;clip-path:polygon(20% 0,100% 0,100% 100%,0% 100%);}
+  .hero .eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-light);margin-bottom:20px;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:52px;line-height:1.05;font-weight:400;margin:0 0 8px;color:#fff;}
+  .hero .role{font-family:'DM Mono',monospace;font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px;}
+  .hero .lede{font-size:18px;line-height:1.72;max-width:620px;color:rgba(255,255,255,.85);}
+  .hero .lede em{font-style:italic;color:var(--red-light);}
+
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:28px;margin:0 0 22px;border-bottom:1px solid var(--line);padding-bottom:14px;color:var(--charcoal);}
+  h3{font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:17px;margin:0 0 10px;}
+
+  section{margin-bottom:72px;}
+
+  /* SOUNDTRACK THAT SHAPES ME */
+  .soundtrack-section{background:var(--charcoal);color:var(--cream);padding:48px;margin-bottom:72px;}
+  .soundtrack-section .section-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--red-light);margin-bottom:16px;}
+  .soundtrack-section h2{font-family:'DM Serif Display',serif;font-size:32px;color:#fff;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:16px;margin-bottom:32px;}
+  .tracks-and-player{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+  .track-list{display:flex;flex-direction:column;gap:20px;}
+  .st-track{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start;}
+  .st-num{font-family:'DM Serif Display',serif;font-size:28px;color:var(--red-light);line-height:1;padding-top:2px;}
+  .st-text{font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);}
+
+  /* THESIS */
+  .thesis{background:var(--gold-bg);border:1px solid #D4B896;border-left:5px solid var(--gold);border-radius:2px;padding:32px 36px;margin-bottom:48px;}
+  .thesis .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .thesis p{font-size:17.5px;line-height:1.75;color:var(--charcoal);margin:0 0 16px;}
+  .thesis p:last-child{margin:0;}
+  .thesis p em{font-style:italic;color:var(--red);}
+
+  /* VERSION GRID */
+  .version-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;}
+  .version-card{background:var(--charcoal);border-radius:2px;overflow:hidden;}
+  .version-top{padding:16px 20px 12px;}
+  .version-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red-light);margin-bottom:4px;}
+  .version-title{font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:14px;color:#fff;}
+  .yt-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}
+  .yt-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .version-note{padding:14px 20px;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.65);border-top:1px solid rgba(255,255,255,.08);}
+
+  .comparison-note{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:22px 28px;margin-top:24px;}
+  .comparison-note .label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+  .comparison-note p{font-size:15px;line-height:1.7;color:var(--charcoal);margin:0;}
+
+  /* CARDS */
+  .cards{display:grid;gap:18px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:24px 28px;}
+  .card .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+  .card p{font-size:15px;line-height:1.6;color:var(--charcoal-soft);margin:0;}
+
+  /* PROJECT */
+  .project{background:var(--card);border:1px solid var(--line);border-radius:2px;margin-bottom:20px;overflow:hidden;}
+  .project-header{padding:22px 26px 16px;}
+  .project-header .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+  .project-header p{font-size:14.5px;line-height:1.6;color:var(--charcoal-soft);margin:0 0 14px;}
+  .project-links{display:flex;gap:12px;flex-wrap:wrap;padding:0 26px 22px;}
+
+  /* BRIEF */
+  .brief-box{background:var(--card-dark);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:2px;padding:24px 28px;margin-bottom:24px;}
+  .brief-box .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+  .brief-meta{font-family:'DM Mono',monospace;font-size:12px;color:var(--charcoal-soft);margin-bottom:14px;line-height:1.7;}
+  .brief-body{font-size:14.5px;line-height:1.7;color:var(--charcoal);}
+  .brief-keywords{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .kw{font-family:'DM Mono',monospace;font-size:11.5px;background:var(--cream);border:1px solid var(--line);padding:4px 10px;border-radius:2px;color:var(--charcoal-soft);}
+
+  .spotify-wrap{margin-bottom:24px;border-radius:12px;overflow:hidden;}
+
+  .tracklist{display:grid;gap:12px;}
+  .track{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:14px 18px;display:grid;grid-template-columns:26px 1fr;gap:12px;}
+  .track-num{font-family:'DM Mono',monospace;font-size:12px;color:var(--red);padding-top:2px;}
+  .track-title{font-weight:600;font-size:14.5px;margin-bottom:2px;}
+  .track-artist{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--charcoal-soft);margin-bottom:6px;}
+  .track-note{font-size:13.5px;line-height:1.6;color:var(--charcoal-soft);}
+
+  /* BUTTONS */
+  .btn{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.04em;text-decoration:none;border:1px solid var(--charcoal);color:var(--charcoal);padding:10px 18px;border-radius:2px;transition:.15s;display:inline-block;}
+  .btn:hover{background:var(--charcoal);color:var(--cream);}
+  .btn.primary{background:var(--red);border-color:var(--red);color:var(--cream);}
+  .btn.primary:hover{background:var(--charcoal);border-color:var(--charcoal);}
+  .btn.small{font-size:12px;padding:8px 14px;}
+  .btn.ghost{background:transparent;border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8);}
+  .btn.ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6);}
+
+  /* FOOTER */
+  .footer{background:var(--charcoal);color:var(--cream);padding:32px 48px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;}
+  .footer .contact{font-family:'DM Mono',monospace;font-size:13px;color:rgba(255,255,255,.55);}
+  .btnrow{display:flex;gap:12px;flex-wrap:wrap;}
+
+  @media(max-width:680px){
+    .hero{padding:48px 28px 44px;}
+    .hero h1{font-size:38px;}
+    .soundtrack-section{padding:36px 24px;}
+    .tracks-and-player{grid-template-columns:1fr;}
+    .version-grid{grid-template-columns:1fr;}
+    .footer{padding:28px 24px;}
+    .track{grid-template-columns:22px 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap" style="padding-top:0;padding-bottom:0;">
+    <div class="eyebrow">Application — Droga5 / Accenture Song</div>
+    <h1>Jabreneé Hussie</h1>
+    <div class="role">Music Supervisor, Early Career · New York, NY</div>
+    <p class="lede">
+      The first film that made me fall in love with storytelling was <em>The Five Heartbeats</em> by Robert Townsend. As a kid, I was so fascinated by how music was woven into that narrative that I'd quote the movie endlessly — and occasionally get in trouble with my parents for the language. What I was really doing was trying to understand something I couldn't articulate yet: how music inside a story doesn't just accompany what's happening. It tells you what to feel before you have time to think about it. As a Black woman and creative professional, I have carried that lesson into everything I've done since.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SOUNDTRACK THAT SHAPES ME -->
+</div>
+<div class="soundtrack-section">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px;">
+    <div class="section-label">Who I Am</div>
+    <h2>The Soundtrack That Shapes Me</h2>
+    <div class="tracks-and-player">
+      <div class="track-list">
+        <div class="st-track">
+          <div class="st-num">1</div>
+          <div class="st-text">Raised in the DMV, I lead with heart, intention, and a deep sense of community.</div>
+        </div>
+        <div class="st-track">
+          <div class="st-num">2</div>
+          <div class="st-text">Playing violin taught me that emotional impact takes repetition, revision, and the willingness to keep listening.</div>
+        </div>
+        <div class="st-track">
+          <div class="st-num">3</div>
+          <div class="st-text">I analyze data, audio, and emotion to tell smarter, more resonant stories.</div>
+        </div>
+        <div class="st-track">
+          <div class="st-num">4</div>
+          <div class="st-text">I see music as a narrative tool — editing for impact, not just sound.</div>
+        </div>
+        <div class="st-track">
+          <div class="st-num">5</div>
+          <div class="st-text">I'm inspired by diverse storytelling, especially BIPOC and queer narratives.</div>
+        </div>
+        <div class="st-track">
+          <div class="st-num">6</div>
+          <div class="st-text">It's not just about telling stories — it's about who gets to be seen and heard.</div>
+        </div>
+      </div>
+      <div>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fI2cH02kFA9sSA1fMD9uA?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+
+<!-- TWO VERSIONS -->
+<section>
+  <h2>A Point of View — Two Versions of the Same Scene</h2>
+
+  <div class="thesis">
+    <div class="label">The question underneath the work</div>
+    <p>For a music supervision assignment, I was asked to re-supervise a scene from <em>Waiting to Exhale</em> — first with my own music choice, then with an AI-suggested alternative. I edited both versions. The choices about what you hear are mine in each case.</p>
+    <p>What the two versions reveal is not just a difference in taste. They reveal a difference in <em>perspective</em>. Both tracks express hurt and rage. But a Black woman's hurt and rage, expressed through the lens of another Black woman, sounds different than when expressed through a lens that does not carry that specific history. That difference lives in the music selection, and it lives in what the music supervisor — and the director, and the music editor — brings to the room.</p>
+    <p>Music supervision is a cultural act. Who is making the decision shapes what gets expressed and how. I want to be in that room with that awareness.</p>
+  </div>
+
+  <div class="version-grid">
+    <div class="version-card">
+      <div class="version-top">
+        <div class="version-tag">Version A</div>
+        <div class="version-title">My selection</div>
+      </div>
+      <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/0ubU6m8LcCI" title="Waiting to Exhale - Version A" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="version-note">The rage here has texture and history. It knows exactly what it is and where it comes from. The sonic choice carries that specificity.</div>
+    </div>
+    <div class="version-card">
+      <div class="version-top">
+        <div class="version-tag">Version B</div>
+        <div class="version-title">AI-suggested, my edit</div>
+      </div>
+      <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/Ywzo1hTSwBo" title="Waiting to Exhale - Version B" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="version-note">The rage here is equally real but more generalized. It reaches for a universal emotional register rather than a specific cultural one. Neither version is wrong. But they are not the same.</div>
+    </div>
+  </div>
+
+  <div class="comparison-note">
+    <div class="label">What this means in practice</div>
+    <p>When a brand asks for music that feels "emotional" or "authentic" or "culturally relevant," the music supervisor is the person in the room who has to know the difference — and be able to argue for it with specificity. That is a skill built from genuine engagement with music across cultures and contexts, not just familiarity with a catalog.</p>
+  </div>
+</section>
+
+<!-- SPOTTING & SCRIPT -->
+<section>
+  <h2>Spotting & Script Work</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="label">Music Supervision Coursework — 30-Minute Edit & Spotting Notes</div>
+      <h3>The Truth About Cats and Dogs</h3>
+      <p>A 30-minute supervised edit with full spotting notes documenting each cue, placement rationale, emotional function, and timing. Spotting is where music supervision begins — watching a cut and deciding where music enters, what it needs to do, and what type of track will answer that moment before a single brief is sent.</p>
+      <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+        <a class="btn small" href="https://drive.google.com/file/d/1Gm_OuRjmeTtclc6lQ_WFo8VJsGZVNWCZ/view?usp=sharing" target="_blank">Watch the Edit</a>
+        <a class="btn small" href="https://docs.google.com/document/d/1VKxxCZQCeMA9NiTLOrmqfN-PPokHcGNJ/edit?usp=sharing" target="_blank">View Spotting Notes</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="label">Music Supervision Coursework — Script Breakdown</div>
+      <h3>My Best Friend's Wedding — Full Music Breakdown</h3>
+      <p>A complete script breakdown documenting every music reference with scene context, usage type (VV, VI, VD, BI), licensing cost estimates, and clearance strategy — including public domain identification, a proposed Bing Crosby estate blanket deal strategy, and creative alternatives where licensed tracks would break budget.</p>
+      <div style="margin-top:16px;">
+        <a class="btn small" href="Script_Breakdown_Jabrenee_Hussie.docx" download>Download Script Breakdown</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIEF RESPONSE -->
+<section>
+  <h2>Brief Response — Meridian (Working Title)</h2>
+  <p style="font-size:15px;color:var(--charcoal-soft);margin-bottom:20px;max-width:640px;">Built against a sync creative brief the same way I built playlists at Position Music — taking a tonal and emotional direction and finding the music that answers it specifically rather than generally.</p>
+
+  <div class="brief-box">
+    <div class="label">Creative Brief — Illustrative</div>
+    <div class="brief-meta">Re: Feature Brief — "Meridian" (Working Title) · Act II mood playlist</div>
+    <div class="brief-body">
+      <p>Late-night conversations between a 17-year-old girl of West African and Caribbean descent and her grandmother. Slow, intimate, emotionally layered. Music should feel like memory, distance, something loved from far away. Independent or mid-size label representation preferred for clearance flexibility.</p>
+      <div class="brief-keywords">
+        <span class="kw">intimate</span><span class="kw">nostalgic</span><span class="kw">diasporic</span><span class="kw">tender</span><span class="kw">grounded</span><span class="kw">luminous</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="spotify-wrap">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/10JGADdIrdOzmlcsYjGQ0i?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <div class="tracklist">
+    <div class="track"><div class="track-num">01</div><div><div class="track-title">GORGEOUS</div><div class="track-artist">Muhsinah</div><div class="track-note">Evokes finding safe harbor in someone. Sets the emotional container for the scene. DC-based independent artist, favorable clearance profile.</div></div></div>
+    <div class="track"><div class="track-num">02</div><div><div class="track-title">Head in a Jar</div><div class="track-artist">Khamari</div><div class="track-note">Sinking into the weight of hearing family history for the first time. Understated enough for dialogue-adjacent placement.</div></div></div>
+    <div class="track"><div class="track-num">03</div><div><div class="track-title">Sunny Days</div><div class="track-artist">Kennedy Ryon</div><div class="track-note">Bluesy like the past. Truth coming to light isn't always comfortable, but it's necessary. Strong lyrical sync potential.</div></div></div>
+    <div class="track"><div class="track-num">04</div><div><div class="track-title">Martha</div><div class="track-artist">Kennedy Ryon</div><div class="track-note">A story of someone's past illuminating someone else's present. Same independent artist as track 03 — clearance efficiency if both selected.</div></div></div>
+    <div class="track"><div class="track-num">05</div><div><div class="track-title">Some Nights I Dream of Doors</div><div class="track-artist">Obongjayar</div><div class="track-note">Enveloped in memories, hopes, and fears simultaneously. Nigerian-British independent artist — diasporic texture that answers the brief's cultural direction.</div></div></div>
+    <div class="track"><div class="track-num">06</div><div><div class="track-title">Mama Don't Worry</div><div class="track-artist">KIRBY</div><div class="track-note">Honoring sacrifice, learning from the past, forging your own path. The emotional peak. High sync potential for scene climax.</div></div></div>
+    <div class="track"><div class="track-num">07</div><div><div class="track-title">River</div><div class="track-artist">Trevor Jackson</div><div class="track-note">The moment where both characters feel the full weight before they can release it. Works for the pivot before emotional resolution.</div></div></div>
+    <div class="track"><div class="track-num">08</div><div><div class="track-title">Breathe</div><div class="track-artist">Jaz Elise</div><div class="track-note">The release. Jamaican independent artist singing in English and Patois — answers the brief's non-English lyric request. Strong closing cue energy.</div></div></div>
+  </div>
+</section>
+
+<!-- SYNC BACKGROUND -->
+<section>
+  <h2>Sync & Licensing Background</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="label">Position Music — Synch & Licensing Intern</div>
+      <h3>DISCO, brief-response curation, cue sheets</h3>
+      <p>Built 10-20 DISCO playlists against creative briefs weekly, tagged catalog tracks for sync potential and metadata searchability, cataloged 200+ TV/film/trailer/advertising placements, and verified 50-60 NBC Sports cue sheet entries per cycle for PRO reporting accuracy.</p>
+    </div>
+    <div class="card">
+      <div class="label">Shades Collective — Roots & Revelry Production Assistant</div>
+      <h3>Music supervision, international clearance</h3>
+      <p>Music supervisor across 10 episodes of a podcast produced alongside a documentary based in Ghana. Made creative music decisions against tonal briefs, coordinated clearance directly with international rights holders, and managed rights workflows between creative, legal, and budget stakeholders.</p>
+    </div>
+  </div>
+</section>
+
+</div><!-- end wrap -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="contact">jabrenee612@gmail.com · (240) 883-2840 </div>
+  <div class="btnrow">
+    <a class="btn primary" href="JabreneéHussieResume_Droga5_Music Supervisor.docx">Resume</a>
+    <a class="btn ghost" href="https://jhussie.github.io/portfolio">Full Portfolio</a>
+  </div>
+</div>
+
+</body>
+</html>
