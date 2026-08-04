@@ -3,376 +3,325 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jabreneé Hussie — Music & Content Operations</title>
+<title>Jabreneé Hussie — Music & Rights Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #0e0e0e; --off-white: #f4f1eb; --cream: #ede9df;
-    --red: #c8392b; --charcoal: #2a2a2a; --mid: #6b6560;
-    --border: #d4cfc6; --serif: 'DM Serif Display', Georgia, serif;
-    --mono: 'DM Mono', monospace; --sans: 'Instrument Sans', sans-serif;
+  :root{
+    --cream:#F4F1EA;
+    --charcoal:#2A2724;
+    --charcoal-soft:#5C574F;
+    --red:#B3402A;
+    --red-light:#E8C4BA;
+    --line:#DAD4C6;
+    --card:#ECE7DC;
+    --card-dark:#E3DDCF;
   }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--off-white); color: var(--charcoal); font-family: var(--sans); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--charcoal);font-family:'Instrument Sans',sans-serif;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px 100px;}
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(244,241,235,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-  .nav-name { font-family: var(--serif); font-size: 1.1rem; color: var(--black); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--red); }
+  /* HERO */
+  .hero{background:var(--charcoal);color:var(--cream);padding:64px 48px 56px;margin-bottom:72px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:0;right:0;width:35%;height:100%;background:var(--red);opacity:.07;clip-path:polygon(20% 0,100% 0,100% 100%,0% 100%);}
+  .hero .eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-light);margin-bottom:20px;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:52px;line-height:1.05;font-weight:400;margin:0 0 8px;color:#fff;}
+  .hero .role{font-family:'DM Mono',monospace;font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px;}
+  .hero .lede{font-size:17px;line-height:1.72;max-width:620px;color:rgba(255,255,255,.82);}
+  .hero .lede em{font-style:italic;color:var(--red-light);}
 
-  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; }
-  .hero-left { padding: 6rem 3rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
-  .hero-eyebrow { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.1s; }
-  .hero-name { font-family: var(--serif); font-size: clamp(3.5rem, 6vw, 5.5rem); line-height: 1.0; color: var(--black); letter-spacing: -0.03em; margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.25s; }
-  .hero-title { font-family: var(--serif); font-size: clamp(1.2rem, 2.2vw, 1.8rem); font-style: italic; color: var(--mid); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
-  .context-tag { display: inline-block; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--black); color: var(--off-white); padding: 0.35rem 0.75rem; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.45s; }
-  .context-tag span { color: var(--red); margin-right: 0.4rem; }
-  .hero-bio { font-size: 1rem; line-height: 1.75; color: var(--charcoal); max-width: 480px; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.55s; }
-  .hero-contact { display: flex; flex-direction: column; gap: 0.6rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.7s; }
-  .hero-contact a { font-family: var(--mono); font-size: 0.78rem; color: var(--mid); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; transition: color 0.2s; }
-  .hero-contact a:hover { color: var(--red); }
-  .hero-contact a::before { content: '→'; color: var(--red); font-size: 0.7rem; }
-  .hero-right { padding: 6rem 3rem 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--cream); }
-  .lanes-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s; }
-  .lane { padding: 1.75rem 0; border-top: 1px solid var(--border); opacity: 0; animation: fadeUp 0.8s ease forwards; }
-  .lane:nth-child(2) { animation-delay: 0.6s; } .lane:nth-child(3) { animation-delay: 0.75s; } .lane:nth-child(4) { animation-delay: 0.9s; }
-  .lane:last-child { border-bottom: 1px solid var(--border); }
-  .lane-num { font-family: var(--mono); font-size: 0.65rem; color: var(--red); margin-bottom: 0.4rem; letter-spacing: 0.1em; }
-  .lane-title { font-family: var(--serif); font-size: 1.4rem; color: var(--black); margin-bottom: 0.5rem; }
-  .lane-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+  /* STAT ROW */
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-bottom:72px;border:1px solid var(--line);}
+  .stat{background:var(--cream);padding:24px 20px;text-align:center;}
+  .stat-num{font-family:'DM Serif Display',serif;font-size:32px;color:var(--red);line-height:1;margin-bottom:6px;}
+  .stat-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--charcoal-soft);}
 
-  section { padding: 6rem 3rem; border-top: 1px solid var(--border); }
-  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4rem; }
-  .section-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); white-space: nowrap; padding-top: 0.3rem; }
-  .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); color: var(--black); line-height: 1.1; letter-spacing: -0.02em; }
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:28px;margin:0 0 22px;border-bottom:1px solid var(--line);padding-bottom:14px;color:var(--charcoal);}
+  h3{font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:17px;margin:0 0 8px;}
 
-  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
-  .work-card { background: var(--off-white); padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; transition: background 0.25s; position: relative; overflow: hidden; }
-  .work-card:hover { background: var(--cream); }
-  .work-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--red); transition: width 0.35s ease; }
-  .work-card:hover::after { width: 100%; }
-  .work-num { font-family: var(--mono); font-size: 0.65rem; color: var(--red); letter-spacing: 0.1em; }
-  .work-title { font-family: var(--serif); font-size: 1.55rem; color: var(--black); line-height: 1.2; letter-spacing: -0.02em; }
-  .work-context { font-family: var(--mono); font-size: 0.7rem; color: var(--mid); letter-spacing: 0.06em; text-transform: uppercase; }
-  .work-body { font-size: 0.92rem; color: var(--charcoal); line-height: 1.7; }
-  .work-outcome { background: var(--black); color: var(--off-white); padding: 1rem 1.25rem; font-size: 0.85rem; line-height: 1.55; margin-top: auto; }
-  .work-outcome strong { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.4rem; }
-  .tools-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
-  .tool-tag { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.25rem 0.6rem; color: var(--mid); background: var(--cream); }
+  section{margin-bottom:72px;}
 
-  #skills { background: var(--cream); }
-  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 4rem; }
-  .skill-group-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
-  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .skill-list li { font-size: 0.92rem; color: var(--charcoal); display: flex; align-items: center; gap: 0.6rem; }
-  .skill-list li::before { content: ''; width: 4px; height: 4px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+  /* EXPERIENCE CARDS */
+  .exp-card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:28px 30px;margin-bottom:18px;}
+  .exp-card .rank{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
+  .exp-card .org{font-family:'DM Mono',monospace;font-size:12px;color:var(--charcoal-soft);margin-bottom:14px;}
+  .exp-card p{font-size:15px;line-height:1.68;color:var(--charcoal-soft);margin:0 0 14px;}
+  .exp-card p:last-of-type{margin-bottom:0;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .tag{font-family:'DM Mono',monospace;font-size:11px;background:var(--cream);border:1px solid var(--line);padding:4px 10px;border-radius:2px;color:var(--charcoal-soft);}
+  .outcome{background:var(--card-dark);border-left:3px solid var(--red);padding:12px 16px;margin-top:14px;font-size:13.5px;line-height:1.6;color:var(--charcoal);}
+  .outcome strong{font-weight:600;}
 
-  .about-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
-  .about-sidebar-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 1rem; }
-  .about-facts { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
-  .about-facts li { font-size: 0.88rem; color: var(--charcoal); padding-bottom: 0.9rem; border-bottom: 1px solid var(--border); line-height: 1.5; }
-  .about-facts li span { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.2rem; }
-  .about-body p { font-size: 1.05rem; line-height: 1.85; color: var(--charcoal); margin-bottom: 1.5rem; }
-  .about-pull { font-family: var(--serif); font-size: 1.6rem; font-style: italic; color: var(--black); line-height: 1.4; border-left: 3px solid var(--red); padding-left: 1.5rem; margin: 2rem 0; }
+  /* COURSEWORK CALLOUT */
+  .coursework{background:var(--charcoal);color:var(--cream);padding:36px 40px;margin-bottom:72px;}
+  .coursework .label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--red-light);margin-bottom:16px;}
+  .coursework h2{font-family:'DM Serif Display',serif;font-size:26px;color:#fff;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:14px;margin-bottom:24px;}
+  .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .course-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:16px 18px;border-radius:2px;}
+  .course-name{font-weight:600;font-size:15px;color:#fff;margin-bottom:4px;}
+  .course-note{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.5;}
 
-  footer { background: var(--black); color: var(--off-white); padding: 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #333; }
-  .footer-name { font-family: var(--serif); font-size: 1.4rem; font-style: italic; }
-  .footer-links { display: flex; gap: 2.5rem; list-style: none; }
-  .footer-links a { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--red); }
-  .footer-copy { font-family: var(--mono); font-size: 0.65rem; color: #555; letter-spacing: 0.08em; }
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .skill-block{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:22px 24px;}
+  .skill-block .label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+  .skill-block ul{margin:0;padding:0;list-style:none;}
+  .skill-block li{font-size:14px;line-height:1.6;color:var(--charcoal-soft);padding:3px 0;border-bottom:1px solid var(--line);}
+  .skill-block li:last-child{border-bottom:none;}
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* RESEARCH */
+  .research-card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:24px 28px;margin-bottom:16px;}
+  .research-card .label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+  .research-card p{font-size:15px;line-height:1.65;color:var(--charcoal-soft);margin:0 0 14px;}
 
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; } .hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--border); }
-    .hero-right { padding: 3rem 1.5rem; } .work-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr 1fr; } .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    section { padding: 4rem 1.5rem; } footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+  /* BUTTONS */
+  .btn{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.04em;text-decoration:none;border:1px solid var(--charcoal);color:var(--charcoal);padding:10px 18px;border-radius:2px;transition:.15s;display:inline-block;}
+  .btn:hover{background:var(--charcoal);color:var(--cream);}
+  .btn.primary{background:var(--red);border-color:var(--red);color:var(--cream);}
+  .btn.primary:hover{background:var(--charcoal);border-color:var(--charcoal);}
+  .btn.small{font-size:12px;padding:8px 14px;}
+  .btn.ghost{background:transparent;border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8);}
+  .btn.ghost:hover{background:rgba(255,255,255,.1);}
+  .btnrow{display:flex;gap:12px;flex-wrap:wrap;}
+
+  /* FOOTER */
+  .footer{background:var(--charcoal);padding:32px 48px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;}
+  .footer .contact{font-family:'DM Mono',monospace;font-size:13px;color:rgba(255,255,255,.55);}
+
+  @media(max-width:680px){
+    .hero{padding:48px 28px 44px;}
+    .hero h1{font-size:36px;}
+    .stat-row{grid-template-columns:repeat(2,1fr);}
+    .course-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .footer{padding:28px 24px;}
+    .wrap{padding:0 18px 80px;}
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-name">Jabreneé Hussie</div>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="mailto:jabrenee612@gmail.com">Contact</a></li>
-  </ul>
-</nav>
-
-<section class="hero" style="border-top:none; padding:0;">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Remote · U.S. Based</p>
-    <h1 class="hero-name">Jabreneé<br>Hussie</h1>
-    <p class="hero-title">Music & Content Operations</p>
-    <div class="context-tag"><span>&#9654;</span> Portfolio prepared for Project Coordinator III — Music & Content Operations</div>
-    <p class="hero-bio">
-      I coordinate deal workflows, track content pipelines, and manage cross-functional operations across music and media partnerships. With hands-on experience in sync licensing, PRO compliance documentation, catalog management, and multi-stakeholder project coordination, I bring 3 years of operational experience across the music and content ecosystem — and the discipline to keep complex workflows accurate, on schedule, and audit-ready. CMU Master of Entertainment Industry Management · Delaware State B.S. Information Technology, Summa Cum Laude.
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap" style="padding-top:0;padding-bottom:0;">
+    <div class="eyebrow">Music & Rights Operations Portfolio</div>
+    <h1>Jabreneé Hussie</h1>
+    <div class="role">Music Rights · Sync Licensing · Publishing Administration · Clearance Coordination</div>
+    <p class="lede">
+      I came into the music industry through information technology, which means I understand that the systems underneath creative work are just as important as the work itself. Getting rights data right, keeping catalog records accurate, coordinating clearances correctly — that is what makes it possible for music to reach the people it's meant for, and for the people who made it to be paid what they're owed. That is the work I have been building toward, and it is the work I want to do.
     </p>
-    <div class="hero-contact">
-      <a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a>
-      <a href="tel:2408832840">(240) 883-2840</a>
-      <a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank">linkedin.com/in/jabrenee-hussie</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- STAT ROW -->
+<div class="stat-row">
+  <div class="stat">
+    <div class="stat-num">200+</div>
+    <div class="stat-label">Placements Cataloged</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">50–60</div>
+    <div class="stat-label">Cue Sheet Entries/Cycle</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10–20</div>
+    <div class="stat-label">DISCO Playlists Built</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">16</div>
+    <div class="stat-label">Episodes Produced</div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section>
+  <h2>Relevant Experience</h2>
+
+  <div class="exp-card">
+    <div class="rank">Most Relevant — Music Rights & Sync Licensing</div>
+    <h3>Cue Sheet Verification, DISCO Catalog Management & Sync Deal Tracking</h3>
+    <div class="org">Position Music · Synch & Licensing Intern · Oct–Dec 2024</div>
+    <p>Worked directly inside the sync licensing deal lifecycle at Position Music, verifying metadata across 50-60 NBC Sports cue sheet entries per cycle — reviewing each entry for accuracy of rights data, PRO attribution, and usage information to ensure correct royalty distribution and performance tracking. Cataloged 200+ TV, film, trailer, and advertising placements in DISCO, maintaining audit-ready records across the full licensing lifecycle. Built and maintained 10-20 DISCO playlists per quarter aligned with partner briefs and release calendars. Tagged Kings & Creatures catalog tracks with keywords and genre metadata to enhance sync discoverability. Monitored and organized 10-15 quarterly ad sync placements, maintaining accurate logs for licensing audits and internal reporting.</p>
+    <div class="tags">
+      <span class="tag">DISCO</span><span class="tag">Cue Sheet Verification</span><span class="tag">PRO Reporting</span><span class="tag">Metadata Management</span><span class="tag">Sync Deal Tracking</span><span class="tag">NBC Sports</span>
     </div>
+    <div class="outcome"><strong>Output:</strong> 200+ placements cataloged · 50-60 cue sheets verified per cycle · 10-15 quarterly ad syncs tracked through full lifecycle · 10-20 DISCO playlists built and maintained per quarter</div>
   </div>
 
-  <div class="hero-right">
-    <p class="lanes-label">What I Bring to This Role</p>
-    <div class="lane">
-      <p class="lane-num">01</p>
-      <h3 class="lane-title">Deal Tracking & Lifecycle Coordination</h3>
-      <p class="lane-desc">Tracked and maintained deal status and documentation across quarterly ad syncs at Position Music, coordinated 5+ simultaneous project pipelines at Common Thread, and managed production workflows from intake through delivery at Shades Collective and AMT Lab.</p>
+  <div class="exp-card">
+    <div class="rank">Music Clearance Coordination</div>
+    <h3>Music Supervisor — Rights Workflow & Clearance Coordination</h3>
+    <div class="org">Shades Collective Inc. · Roots & Revelry Production Assistant · Oct 2024–May 2025</div>
+    <p>Oversaw music direction and clearance coordination across 10 episodes as podcast music supervisor, coordinating directly with international artist teams and rights holders to secure appropriate usage rights. Managed rights workflows between creative, legal, and budget stakeholders from pre-production through final delivery. Maintained accurate clearance documentation and correspondence throughout the project lifecycle, ensuring records were audit-ready at every stage. Supported a documentary filmed in Ghana alongside the podcast, building experience with international rights coordination across diasporic creative work.</p>
+    <div class="tags">
+      <span class="tag">Music Clearance</span><span class="tag">Rights Coordination</span><span class="tag">International Rights</span><span class="tag">Stakeholder Management</span><span class="tag">Documentation</span>
     </div>
-    <div class="lane">
-      <p class="lane-num">02</p>
-      <h3 class="lane-title">Cross-Functional Operations</h3>
-      <p class="lane-desc">Coordinated between creative, legal, finance, and operations stakeholders across music clearance, rights documentation, compliance workflows, and content partner onboarding across multiple organizations simultaneously.</p>
-    </div>
-    <div class="lane">
-      <p class="lane-num">03</p>
-      <h3 class="lane-title">Process Improvement & Music Industry Knowledge</h3>
-      <p class="lane-desc">Identified and drove operational improvements at AMT Lab — restructuring the content pipeline unprompted based on data analysis. Deep familiarity with sync licensing, PRO reporting, cue sheet documentation, and the rights infrastructure underpinning music content partnerships.</p>
-    </div>
-  </div>
-</section>
-
-<section id="work">
-  <div class="section-header reveal">
-    <span class="section-label">Selected Work</span>
-    <h2 class="section-title">Relevant<br>Experience</h2>
+    <div class="outcome"><strong>Output:</strong> 10 episodes cleared and delivered · International rights coordinated across artists in multiple territories · Clearance documentation maintained audit-ready throughout</div>
   </div>
 
-  <div class="work-grid">
-
-    <div class="work-card reveal">
-      <p class="work-num">01 / Most Relevant</p>
-      <h3 class="work-title">Deal Tracking, Sync Lifecycle & Partner Documentation</h3>
-      <p class="work-context">Position Music · Sync & Metadata Intern · 2024</p>
-      <p class="work-body">
-        Worked directly inside the sync licensing deal lifecycle at Position Music, tracking and maintaining documentation across 10-15 quarterly ad syncs from execution through delivery. Verified metadata accuracy across 50-60 NBC Sports cue sheets per cycle, ensuring PRO reporting compliance on behalf of publishers and songwriting partners. Cataloged 200+ placements across TV, film, trailer, and advertising in DISCO, supporting deal visibility and partner onboarding across regions. Built and maintained 10-20 DISCO playlists per quarter aligned with partner briefs and release calendars. This is the music content operations deal lifecycle work this role is built around.
-      </p>
-      <div class="tools-row">
-        <span class="tool-tag">DISCO</span>
-        <span class="tool-tag">Deal Tracking</span>
-        <span class="tool-tag">Cue Sheets</span>
-        <span class="tool-tag">PRO Compliance</span>
-        <span class="tool-tag">Metadata Management</span>
-        <span class="tool-tag">Partner Documentation</span>
-      </div>
-      <div class="work-outcome">
-        <strong>Outcome</strong>
-        200+ placements cataloged · 50-60 cue sheets verified per cycle · 10-15 quarterly ad syncs tracked through full lifecycle · 10-20 playlists built and maintained per quarter
-      </div>
+  <div class="exp-card">
+    <div class="rank">Project Coordination & Partner Management</div>
+    <h3>Multi-Pipeline Coordination, Partner Onboarding & Stakeholder Communications</h3>
+    <div class="org">Common Thread Entertainment · Talent Management Intern · Jan–May 2025</div>
+    <p>Tracked and coordinated project pipelines across 5+ simultaneous workflows, managing documentation, deliverables, and stakeholder communications across a distributed team. Evaluated and onboarded 137 Hispanic and African American voice-over artists with a 70% acceptance rate, maintaining accurate, searchable records under deadline pressure. Coordinated sourcing of corporate conference B-roll, ensuring compliance with usage rights and managing communications between internal teams and external vendors.</p>
+    <div class="tags">
+      <span class="tag">Pipeline Tracking</span><span class="tag">Partner Onboarding</span><span class="tag">Usage Rights Compliance</span><span class="tag">Documentation</span><span class="tag">Stakeholder Comms</span>
     </div>
+    <div class="outcome"><strong>Output:</strong> 5+ simultaneous pipelines tracked · 137 partners onboarded with 70% acceptance rate · Usage rights compliance maintained across B-roll sourcing</div>
+  </div>
 
-    <div class="work-card reveal">
-      <p class="work-num">02 / Most Relevant</p>
-      <h3 class="work-title">Multi-Pipeline Project Coordination & Stakeholder Management</h3>
-      <p class="work-context">Common Thread Entertainment · Shades Collective · 2024–2025</p>
-      <p class="work-body">
-        At Common Thread, tracked and coordinated project pipelines across 5+ simultaneous workflows, managing documentation, deliverables, and stakeholder communications to maintain operational visibility. Evaluated and onboarded 137 voice-over artists with a 70% acceptance rate, maintaining audit-ready partner records and structured reporting. At Shades Collective, coordinated production schedules and cross-functional operations across documentary, podcast, and digital content projects, resolving day-to-day operational queries and ensuring 100% on-time delivery. Supported music clearance planning for a 10-episode podcast, liaising between creative, legal, and budget stakeholders to manage rights workflows.
-      </p>
-      <div class="tools-row">
-        <span class="tool-tag">Pipeline Tracking</span>
-        <span class="tool-tag">Partner Onboarding</span>
-        <span class="tool-tag">Stakeholder Management</span>
-        <span class="tool-tag">Cross-functional Coordination</span>
-        <span class="tool-tag">Asana</span>
-        <span class="tool-tag">Notion</span>
-      </div>
-      <div class="work-outcome">
-        <strong>Outcome</strong>
-        5+ simultaneous pipelines tracked · 137 partners onboarded and documented · 100% on-time delivery across all coordinated projects · Music clearance workflows managed cross-functionally
-      </div>
+  <div class="exp-card">
+    <div class="rank">Content Pipeline Operations</div>
+    <h3>Content Pipeline Management & Process Improvement</h3>
+    <div class="org">Arts Management & Technology Laboratory, CMU · Podcast Producer · Sep 2023–May 2024</div>
+    <p>Managed the full content production pipeline for 16 podcast episodes across two documentary-style series, coordinating workflows from intake through multi-platform distribution while maintaining 100% on-schedule delivery. Identified a structural gap in the content operations model and drove an unprompted improvement initiative, restructuring the release architecture into 2 serialized series based on monthly analytics data. Produced monthly stakeholder reports translating listener data into operational recommendations for content and scheduling decisions.</p>
+    <div class="tags">
+      <span class="tag">Pipeline Management</span><span class="tag">Process Improvement</span><span class="tag">Analytics Reporting</span><span class="tag">Multi-platform Distribution</span>
     </div>
+    <div class="outcome"><strong>Output:</strong> 16 episodes delivered on schedule · 2 serialized series launched · Process improvement initiative driven unprompted · Monthly analytics reports delivered to stakeholders</div>
+  </div>
 
-    <div class="work-card reveal">
-      <p class="work-num">03</p>
-      <h3 class="work-title">Content Pipeline Operations & Process Improvement</h3>
-      <p class="work-context">Arts Management & Technology Laboratory, CMU · 2023–2024</p>
-      <p class="work-body">
-        Managed the full content production pipeline for 16 podcast episodes — coordinating workflows across recording, editing, transcription, and multi-platform distribution while maintaining 100% on-schedule delivery. Identified a structural gap in the content operations model and drove an improvement initiative, restructuring the release architecture from standalone episodes into 2 serialized series based on monthly analytics data. Produced monthly stakeholder reports translating listener data into operational recommendations. This unprompted process improvement directly reflects the role's requirement to identify gaps and drive operational improvements within a content partnership environment.
-      </p>
-      <div class="tools-row">
-        <span class="tool-tag">Pipeline Management</span>
-        <span class="tool-tag">Process Improvement</span>
-        <span class="tool-tag">Analytics Reporting</span>
-        <span class="tool-tag">Descript</span>
-        <span class="tool-tag">Libsyn</span>
-        <span class="tool-tag">Chartable</span>
-      </div>
-      <iframe style="border-radius:12px; margin-top:1rem;" src="https://open.spotify.com/embed/playlist/5zlerxiI5RmUHQPb02U1da?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <div class="work-outcome">
-        <strong>Outcome</strong>
-        16 episodes delivered on schedule · 2 serialized series launched · Process improvement initiative driven and implemented · Monthly analytics reports delivered to stakeholders
-      </div>
+  <div class="exp-card">
+    <div class="rank">Compliance & Financial Operations</div>
+    <h3>Compliance Documentation & Financial Workflow Coordination</h3>
+    <div class="org">Inovalon (Healthcare Technology) · Fairfax County Park Authority · 2016–2022</div>
+    <p>At Inovalon, built and maintained enterprise-level compliance tracking systems and documentation frameworks across data governance workflows in a highly regulated environment, supporting audit readiness across multiple simultaneous operational workstreams. At Fairfax County Park Authority, managed financial transactions, payment reconciliation, and cash handling across high-volume public-facing operations over three years, simultaneously holding multiple operational roles and maintaining accuracy under concurrent responsibilities.</p>
+    <div class="tags">
+      <span class="tag">Compliance Documentation</span><span class="tag">Financial Tracking</span><span class="tag">Payment Reconciliation</span><span class="tag">Audit Readiness</span><span class="tag">Data Governance</span>
     </div>
-
-    <div class="work-card reveal">
-      <p class="work-num">04</p>
-      <h3 class="work-title">Compliance Documentation & Financial Workflow Coordination</h3>
-      <p class="work-context">Inovalon (Healthcare Technology) · Fairfax County Park Authority · 2016–2022</p>
-      <p class="work-body">
-        At Inovalon, built and maintained enterprise-level compliance tracking systems and documentation frameworks across data governance workflows in a highly regulated environment, supporting audit readiness across multiple simultaneous operational workstreams. The structured financial and compliance documentation experience here mirrors the PR to PO, invoicing, and payment tracking this role requires. At Fairfax County Park Authority, managed financial transactions, payment reconciliation, and cash handling across high-volume public-facing operations over 3 years, simultaneously holding multiple operational roles and maintaining accuracy under concurrent responsibilities.
-      </p>
-      <div class="tools-row">
-        <span class="tool-tag">Compliance Documentation</span>
-        <span class="tool-tag">Financial Tracking</span>
-        <span class="tool-tag">Payment Reconciliation</span>
-        <span class="tool-tag">Cash Handling</span>
-        <span class="tool-tag">Audit Readiness</span>
-      </div>
-      <div class="work-outcome">
-        <strong>Outcome</strong>
-        Enterprise compliance tracking systems built and maintained · Financial transaction accuracy maintained across 3 years of high-volume public operations · Audit-ready documentation frameworks delivered
-      </div>
-    </div>
-
+    <div class="outcome"><strong>Output:</strong> Enterprise compliance tracking systems built and maintained · Financial transaction accuracy maintained across 3 years · Audit-ready documentation frameworks delivered</div>
   </div>
 </section>
 
-<section id="skills">
-  <div class="section-header reveal">
-    <span class="section-label">Capabilities</span>
-    <h2 class="section-title">Skills &<br>Tools</h2>
+</div><!-- end wrap -->
+
+<!-- COURSEWORK CALLOUT -->
+<div class="coursework">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px;">
+    <div class="label">Graduate Training — Carnegie Mellon University, Heinz College</div>
+    <h2>Intellectual Property & Music Business Foundation</h2>
+    <div class="course-grid">
+      <div class="course-item">
+        <div class="course-name">Intellectual Property</div>
+        <div class="course-note">Copyright law, licensing structures, ownership rights, fair use, and the legal framework underlying music clearance and publishing administration</div>
+      </div>
+      <div class="course-item">
+        <div class="course-name">TV Business & Legal Affairs</div>
+        <div class="course-note">How music rights flow through broadcast and streaming content — clearance, licensing agreements, cue sheet obligations, and music vendor relationships</div>
+      </div>
+      <div class="course-item">
+        <div class="course-name">Music Monetization</div>
+        <div class="course-note">Revenue structures across PROs, sync licensing, mechanical rights, publishing administration, and distribution — how music rights translate into income for creators</div>
+      </div>
+      <div class="course-item">
+        <div class="course-name">Music Supervision</div>
+        <div class="course-note">The creative and operational function of music supervision — brief-response curation, spotting, clearance strategy, and the relationship between music and visual media</div>
+      </div>
+      <div class="course-item">
+        <div class="course-name">Negotiation</div>
+        <div class="course-note">Deal structure, negotiation strategy, and how licensing negotiations work in practice across music rights, content deals, and vendor relationships</div>
+      </div>
+      <div class="course-item">
+        <div class="course-name">Film Economics</div>
+        <div class="course-note">How entertainment content is financed, distributed, and monetized — the business context in which music rights decisions get made</div>
+      </div>
+    </div>
   </div>
+</div>
+
+<div class="wrap">
+
+<!-- SKILLS -->
+<section>
+  <h2>Skills & Tools</h2>
   <div class="skills-grid">
-    <div class="reveal">
-      <p class="skill-group-title">Music & Content Operations</p>
-      <ul class="skill-list">
+    <div class="skill-block">
+      <div class="label">Music Rights & Licensing</div>
+      <ul>
+        <li>Cue sheet verification and PRO reporting</li>
+        <li>ASCAP, BMI, SESAC registration familiarity</li>
         <li>Sync licensing coordination</li>
-        <li>Cue sheet documentation</li>
-        <li>PRO compliance reporting</li>
+        <li>Music clearance documentation</li>
+        <li>Master and publishing rights research</li>
         <li>DISCO catalog management</li>
-        <li>Metadata verification</li>
-        <li>Deal tracking and lifecycle mgmt</li>
-        <li>Content partner onboarding</li>
+        <li>Metadata verification and tagging</li>
       </ul>
     </div>
-    <div class="reveal">
-      <p class="skill-group-title">Project Coordination & Tracking</p>
-      <ul class="skill-list">
-        <li>Multi-pipeline tracking</li>
-        <li>Deal status reporting</li>
-        <li>Cross-functional workflow coordination</li>
-        <li>Process gap identification</li>
-        <li>Operational improvement</li>
-        <li>Stakeholder management</li>
-        <li>100% on-time delivery record</li>
-      </ul>
-    </div>
-    <div class="reveal">
-      <p class="skill-group-title">Project Management Tools</p>
-      <ul class="skill-list">
-        <li>Airtable</li>
-        <li>Jira</li>
-        <li>Notion</li>
-        <li>Asana</li>
-        <li>Trello</li>
-        <li>Monday.com</li>
-        <li>Google Drive · Excel</li>
-      </ul>
-    </div>
-    <div class="reveal">
-      <p class="skill-group-title">Financial & Payment Workflows</p>
-      <ul class="skill-list">
-        <li>PR to PO process familiarity</li>
-        <li>Invoice tracking</li>
-        <li>Compliance documentation</li>
-        <li>Financial transaction management</li>
-        <li>Payment reconciliation</li>
-        <li>Cash handling and POS systems</li>
+    <div class="skill-block">
+      <div class="label">Operations & Coordination</div>
+      <ul>
+        <li>Multi-pipeline project tracking</li>
+        <li>Cross-functional stakeholder management</li>
         <li>Audit-ready record keeping</li>
+        <li>Process gap identification and improvement</li>
+        <li>Partner onboarding and documentation</li>
+        <li>Compliance documentation frameworks</li>
+        <li>Financial transaction and payment tracking</li>
       </ul>
     </div>
-    <div class="reveal">
-      <p class="skill-group-title">Communication & Analysis</p>
-      <ul class="skill-list">
-        <li>Stakeholder communications</li>
-        <li>Operational query resolution</li>
-        <li>Analytics reporting</li>
-        <li>Industry research</li>
-        <li>Data synthesis</li>
-        <li>Python · SQL · Excel</li>
-        <li>AI content evaluation</li>
+    <div class="skill-block">
+      <div class="label">Tools & Platforms</div>
+      <ul>
+        <li>Airtable, Asana, Notion, Trello</li>
+        <li>Microsoft Excel (advanced cataloging)</li>
+        <li>Google Suite, Microsoft Office</li>
+        <li>DISCO (sync licensing platform)</li>
+        <li>Libsyn, Chartable, Descript</li>
+        <li>Canva, Adobe Express</li>
+        <li>Python, SQL (IT degree foundation)</li>
       </ul>
     </div>
-    <div class="reveal">
-      <p class="skill-group-title">Education</p>
-      <ul class="skill-list">
-        <li>M.S. Entertainment Industry Mgmt</li>
-        <li>Carnegie Mellon University</li>
-        <li>B.S. Information Technology</li>
-        <li>Delaware State University (HBCU)</li>
-        <li>Summa Cum Laude · Honors Program</li>
-        <li>YouTube Music Certificate · 2026</li>
+    <div class="skill-block">
+      <div class="label">Communication & Analysis</div>
+      <ul>
+        <li>Professional written and verbal communication</li>
+        <li>Rights holder and affiliate outreach</li>
+        <li>Analytics reporting and data synthesis</li>
+        <li>Cross-functional workflow documentation</li>
+        <li>Confidentiality and discretion in rights contexts</li>
+        <li>AI content evaluation (Handshake)</li>
+        <li>YouTube Music Certificate · Google Skillshop</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section id="about">
-  <div class="section-header reveal">
-    <span class="section-label">Background</span>
-    <h2 class="section-title">About</h2>
-  </div>
-  <div class="about-inner">
-    <div class="reveal">
-      <p class="about-sidebar-label">Quick Facts</p>
-      <ul class="about-facts">
-        <li><span>Location</span>Upper Marlboro, MD · Available remotely across U.S.</li>
-        <li><span>Music Experience</span>Sync licensing and PRO compliance at Position Music, music clearance coordination at Shades Collective, Grammy U member</li>
-        <li><span>Project Coordination</span>3 years across Common Thread, Shades Collective, AMT Lab, Inovalon</li>
-        <li><span>Specialty</span>Deal lifecycle tracking, cross-functional operations coordination, process improvement, and music content partnerships</li>
-        <li><span>Available For</span>Contract roles · Immediate start</li>
-      </ul>
+<!-- RESEARCH -->
+<section>
+  <h2>Industry Research</h2>
+
+  <div class="research-card">
+    <div class="label">Graduate Capstone — Carnegie Mellon University, 2025</div>
+    <h3>Remixing the Music Industry: Strategies for 21st Century Record Labels</h3>
+    <p>Led a strategic research project analyzing how independent labels adapt to the evolving digital ecosystem. Conducted executive interviews with leaders at Position Music, Beatport, Rostrum Records, and more, examining how DSPs, social media, and direct-to-fan strategies shape audience building, revenue diversification, and artist empowerment. Produced a full strategic analysis document examining sync licensing, catalog management, and publishing infrastructure across the independent label landscape.</p>
+    <div class="btnrow">
+      <a class="btn small" href="https://jhussie.github.io/portfolio">View Full Portfolio</a>
     </div>
-    <div class="about-body reveal">
-      <p>
-        I'm Jabreneé Hussie, a music and content operations professional with 3 years of experience coordinating deal workflows, tracking content pipelines, and managing cross-functional operations across the music and media ecosystem. I hold a Master of Entertainment Industry Management from Carnegie Mellon University's Heinz College and a B.S. in Information Technology from Delaware State University, where I graduated Summa Cum Laude from the Honors Program.
-      </p>
-      <div class="about-pull">
-        I've worked inside the sync licensing deal lifecycle, coordinated music clearance workflows, and managed content pipelines across multiple organizations simultaneously. The operational discipline this role requires is what I've been building for years.
-      </div>
-      <p>
-        At Position Music I tracked quarterly ad syncs through the full licensing lifecycle, verified PRO compliance documentation, and coordinated partner records across 200+ placements. At Common Thread I managed 5+ simultaneous project pipelines and onboarded 137 content partners. At Shades Collective I resolved day-to-day operational queries, coordinated music clearance between legal and creative teams, and ensured 100% on-time delivery across a distributed team. At CMU's AMT Lab I identified a structural gap in content operations and drove an improvement initiative unprompted — restructuring the pipeline based on analytics data.
-      </p>
-      <p>
-        I thrive with clear workflows, defined accountability, and complex operational environments where attention to detail is the difference between a deal closing smoothly and one falling apart. That's the kind of work I'm built for, and it's exactly what this role requires.
-      </p>
+  </div>
+
+  <div class="research-card">
+    <div class="label">Industry Analysis — UMG & Artificial Intelligence</div>
+    <h3>Navigating the Future of Music: How Universal Music Group Is Responding to AI</h3>
+    <p>A presentation analyzing how the world's largest music company is navigating the rapid integration of AI in the music industry — examining policy, artist rights, catalog protection, competitive strategy, and the implications for music licensing and rights administration at scale.</p>
+    <div class="btnrow">
+      <a class="btn small" href="https://docs.google.com/presentation/d/1TO8QCMreUsdzcMO5Vq-QKwaSznBx7Byj/edit" target="_blank">View Presentation</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-name">Jabreneé Hussie</div>
-  <ul class="footer-links">
-    <li><a href="mailto:jabrenee612@gmail.com">jabrenee612@gmail.com</a></li>
-    <li><a href="tel:2408832840">(240) 883-2840</a></li>
-    <li><a href="https://www.linkedin.com/in/jabrenee-hussie" target="_blank">LinkedIn</a></li>
-    <li><a href="https://jhussie.github.io/portfolio" target="_blank">Main Portfolio</a></li>
-  </ul>
-  <p class="footer-copy">Remote · U.S. Based</p>
-</footer>
+</div><!-- end wrap -->
 
-<script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
-</script>
+<!-- FOOTER -->
+<div class="footer">
+  <div class="contact">jabrenee612@gmail.com · (240) 883-2840</div>
+  <div class="btnrow">
+    <a class="btn primary" href="https://jhussie.github.io/portfolio">Full Portfolio</a>
+    <a class="btn ghost" href="mailto:jabrenee612@gmail.com">Get in Touch</a>
+  </div>
+</div>
+
 </body>
 </html>
