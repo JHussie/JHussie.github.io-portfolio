@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jabreneé Hussie — Industry Standard Experience Residency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F1EA;
+    --charcoal:#2A2724;
+    --charcoal-soft:#5C574F;
+    --red:#B3402A;
+    --red-light:#E8C4BA;
+    --line:#DAD4C6;
+    --card:#ECE7DC;
+    --card-dark:#E3DDCF;
+    --gold:#8B6914;
+    --gold-bg:#F7F0DC;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--charcoal);font-family:'Instrument Sans',sans-serif;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px 100px;}
+
+  /* HERO */
+  .hero{background:var(--charcoal);color:var(--cream);padding:72px 48px 64px;margin-bottom:72px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:0;right:0;width:35%;height:100%;background:var(--red);opacity:.07;clip-path:polygon(20% 0,100% 0,100% 100%,0% 100%);}
+  .hero .eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-light);margin-bottom:20px;}
+  .hero h1{font-family:'DM Serif Display',serif;font-size:50px;line-height:1.05;font-weight:400;margin:0 0 8px;color:#fff;}
+  .hero .role{font-family:'DM Mono',monospace;font-size:14px;color:rgba(255,255,255,.45);margin-bottom:32px;}
+  .hero .lede{font-size:17px;line-height:1.82;max-width:620px;color:rgba(255,255,255,.82);}
+  .hero .lede em{font-style:italic;color:var(--red-light);}
+
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:28px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:14px;}
+  h3{font-family:'Instrument Sans',sans-serif;font-weight:600;font-size:17px;margin:0 0 8px;}
+
+  section{margin-bottom:72px;}
+
+  /* REFLECTION BOXES */
+  .reflection{background:var(--gold-bg);border:1px solid #D4B896;border-left:5px solid var(--gold);border-radius:2px;padding:28px 32px;margin-bottom:28px;}
+  .reflection .label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .reflection p{font-size:16px;line-height:1.78;color:var(--charcoal);margin:0 0 14px;}
+  .reflection p:last-child{margin:0;}
+  .reflection p em{font-style:italic;color:var(--red);}
+
+  /* WORK CARDS */
+  .work-card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:26px 30px;margin-bottom:20px;}
+  .work-card .label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+  .work-card .org{font-family:'DM Mono',monospace;font-size:12px;color:var(--charcoal-soft);margin-bottom:14px;}
+  .work-card p{font-size:15px;line-height:1.7;color:var(--charcoal-soft);margin:0 0 14px;}
+  .work-card p:last-of-type{margin:0;}
+
+  /* VERSION GRID */
+  .version-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+  .version-card{background:var(--charcoal);border-radius:2px;overflow:hidden;}
+  .version-top{padding:14px 18px 10px;}
+  .version-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red-light);margin-bottom:4px;}
+  .version-title{font-weight:600;font-size:14px;color:#fff;}
+  .yt-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;}
+  .yt-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+  .version-note{padding:12px 18px;font-size:13px;line-height:1.6;color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.08);}
+
+  /* PLAYLIST */
+  .spotify-wrap{margin-bottom:20px;border-radius:12px;overflow:hidden;}
+  .tracklist{display:grid;gap:10px;}
+  .track{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:12px 16px;display:grid;grid-template-columns:24px 1fr;gap:10px;}
+  .track-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--red);padding-top:2px;}
+  .track-title{font-weight:600;font-size:14px;margin-bottom:2px;}
+  .track-artist{font-family:'DM Mono',monospace;font-size:11px;color:var(--charcoal-soft);margin-bottom:5px;}
+  .track-note{font-size:13px;line-height:1.55;color:var(--charcoal-soft);}
+
+  /* STAT ROW */
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:28px;}
+  .stat{background:var(--cream);padding:20px 16px;text-align:center;}
+  .stat-num{font-family:'DM Serif Display',serif;font-size:30px;color:var(--red);line-height:1;margin-bottom:4px;}
+  .stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--charcoal-soft);}
+
+  /* BUTTONS */
+  .btn{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.04em;text-decoration:none;border:1px solid var(--charcoal);color:var(--charcoal);padding:10px 18px;border-radius:2px;transition:.15s;display:inline-block;}
+  .btn:hover{background:var(--charcoal);color:var(--cream);}
+  .btn.primary{background:var(--red);border-color:var(--red);color:var(--cream);}
+  .btn.primary:hover{background:var(--charcoal);border-color:var(--charcoal);}
+  .btn.small{font-size:12px;padding:8px 14px;}
+  .btn.ghost{background:transparent;border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8);}
+  .btn.ghost:hover{background:rgba(255,255,255,.1);}
+  .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+
+  /* FOOTER */
+  .footer{background:var(--charcoal);padding:36px 48px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;}
+  .footer .contact{font-family:'DM Mono',monospace;font-size:13px;color:rgba(255,255,255,.55);}
+
+  @media(max-width:680px){
+    .hero{padding:52px 28px 48px;}
+    .hero h1{font-size:36px;}
+    .version-grid{grid-template-columns:1fr;}
+    .stat-row{grid-template-columns:1fr 1fr 1fr;}
+    .footer{padding:28px 24px;}
+    .wrap{padding:0 18px 80px;}
+    .track{grid-template-columns:20px 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap" style="padding-top:0;padding-bottom:0;">
+    <div class="eyebrow">Application — Industry Standard Experience Residency 2027</div>
+    <h1>Jabreneé Hussie</h1>
+    <div class="role">Archival Research + Producing · Work Samples</div>
+    <p class="lede">
+      I have always believed that the materials that document real people's real lives deserve to be handled with precision, care, and the understanding that <em>how you treat these materials is how you treat the people they represent.</em> This page is a window into how I think, how I work, and why this track feels like the right next step in building toward the stories I want to protect and tell.
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- WHY THIS WORK MATTERS -->
+<section>
+  <h2>Why This Work Matters to Me</h2>
+  <div class="reflection">
+    <div class="label">On 13th and what archival materials can do</div>
+    <p>There is a moment in Ava DuVernay's 13th where she cuts from photographs of Black families after the Civil War — ordinary mothers, fathers, sons, and daughters — to images of Black men and boys in prison uniforms performing labor. I had heard the history. I knew what happened. But seeing those specific images placed next to each other, the deliberate choice to show humanity and then immediately show how it was stripped away, that is something else entirely.</p>
+    <p>Someone chose those images. Someone researched and cleared and organized those materials and understood what was at stake in how they were used. That is the work I want to learn to do — not because it is glamorous, but because it is foundational to doing this right. <em>That deliberate discomfort is what great documentary does, and it is what I want to carry into my work with archival materials.</em></p>
+  </div>
+</section>
+
+<!-- SCRIPT BREAKDOWN -->
+<section>
+  <h2>Script Breakdown — Rights Research & Clearance Strategy</h2>
+  <p style="font-size:15px;line-height:1.7;color:var(--charcoal-soft);margin-bottom:24px;max-width:660px;">A complete script breakdown of My Best Friend's Wedding — every music reference identified, categorized by usage type, researched for rights holders, and assigned a licensing cost estimate and clearance strategy. This is the research and organizational discipline that archival producing requires applied to a feature film's full music footprint.</p>
+
+  <div class="work-card">
+    <div class="label">Music Supervision Coursework — Carnegie Mellon University</div>
+    <h3>My Best Friend's Wedding — Full Music Reference Breakdown</h3>
+    <p>Systematic identification of every music reference across the full script, categorized by usage type: Visual Vocal (VV), Visual Instrumental (VI), Visual Dance (VD), and Background Instrumental (BI). Each reference includes scene context, estimated licensing cost, and a clearance strategy — including public domain identification, a proposed Bing Crosby estate blanket deal strategy across multiple uses, and creative alternatives where licensed tracks would exceed budget.</p>
+    <p>The same research and rights-holder thinking that makes a music script breakdown possible is what makes archival clearance work possible: knowing what you have, who owns it, what it costs to use, and how to build a strategy around both creative intent and legal reality.</p>
+    <div class="btnrow">
+      <a class="btn primary" href="Script_Breakdown_Jabrenee_Hussie.docx" download>Download Script Breakdown</a>
+    </div>
+  </div>
+</section>
+
+<!-- RIGHTS & CATALOG WORK -->
+<section>
+  <h2>Rights Accuracy & Catalog Organization</h2>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Placements Cataloged</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50-60</div>
+      <div class="stat-label">Cue Sheet Entries Verified / Cycle</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Episodes Cleared as Music Supervisor</div>
+    </div>
+  </div>
+
+  <div class="work-card">
+    <div class="label">Position Music — Synch & Licensing Intern · Oct–Dec 2024</div>
+    <h3>Cue Sheet Verification, DISCO Catalog Management & Rights Tracking</h3>
+    <p>Verified metadata for 50-60 NBC Sports cue sheet entries per cycle, reviewing each for accuracy of PRO attribution, rights data, and usage information before it went out to third-party partners. Cataloged 200+ TV, film, trailer, and advertising placements in DISCO, maintaining audit-ready records across the full licensing lifecycle. Tagged catalog tracks with genre metadata, mood keywords, tempo, and instrumentation markers to improve searchability and sync discoverability.</p>
+    <p>This is the accuracy and organizational discipline that archival work requires — understanding that every entry matters, that a discrepancy caught early is a problem that never becomes downstream, and that the records you keep are only as useful as their precision.</p>
+  </div>
+
+  <div class="work-card">
+    <div class="label">Shades Collective — Roots & Revelry Production Assistant · Oct 2024–May 2025</div>
+    <h3>Music Clearance Coordination — International Production</h3>
+    <p>Served as music supervisor across 10 episodes of a documentary podcast produced alongside a film based in Ghana. Coordinated clearance directly with international artist teams and rights holders, managed rights workflows between creative, legal, and budget stakeholders, and maintained audit-ready clearance documentation throughout the full production lifecycle. Every clearance decision required understanding both the creative intent behind the music choice and the legal and logistical reality of securing it.</p>
+  </div>
+
+  <div class="work-card">
+    <div class="label">Music Supervision Coursework — Carnegie Mellon University</div>
+    <h3>The Truth About Cats and Dogs — Supervised Edit & Spotting Notes</h3>
+    <p>Produced a 30-minute supervised edit placing 13 music syncs into raw dialogue and visual footage, then wrote full spotting notes documenting timestamps, scene descriptions, emotional function, and rationale for each placement. Spotting notes are one of the most precise forms of production documentation — a structured record of every musical decision in a cut and why it was made. That discipline of systematic observation and documentation is at the heart of archival producing work.</p>
+    <div class="btnrow">
+      <a class="btn small" href="https://drive.google.com/file/d/1Gm_OuRjmeTtclc6lQ_WFo8VJsGZVNWCZ/view?usp=sharing" target="_blank">Watch the Edit</a>
+      <a class="btn small" href="https://docs.google.com/document/d/1VKxxCZQCeMA9NiTLOrmqfN-PPokHcGNJ/edit?usp=sharing" target="_blank">View Spotting Notes</a>
+    </div>
+  </div>
+</section>
+
+<!-- TWO VERSIONS -->
+<section>
+  <h2>A Point of View — Two Versions of the Same Scene</h2>
+
+  <div class="reflection">
+    <div class="label">On perspective and what it means for archival work</div>
+    <p>For a music supervision assignment, I was asked to re-supervise a scene from Waiting to Exhale — first with my own music choice, then with an AI-suggested alternative. I edited both versions. The choices about what you hear are mine in each case.</p>
+    <p>What the two versions reveal is not just a difference in taste. They reveal a difference in <em>perspective</em>. Both tracks express hurt and rage. But a Black woman's hurt and rage, expressed through the lens of another Black woman, sounds different than when expressed through a lens that does not carry that specific history. That difference lives in the selection — and it lives in what the person making the decision brings to the room.</p>
+    <p>Archival work carries the same responsibility. The materials you choose, the context you provide, the framing you build around what you found — these are not neutral decisions. Who is making them matters. I want to be in that room with that awareness.</p>
+  </div>
+
+  <div class="version-grid">
+    <div class="version-card">
+      <div class="version-top">
+        <div class="version-tag">Version A</div>
+        <div class="version-title">My selection</div>
+      </div>
+      <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/0ubU6m8LcCI" title="Waiting to Exhale - Version A" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="version-note">The rage here has texture and history. It knows exactly what it is and where it comes from.</div>
+    </div>
+    <div class="version-card">
+      <div class="version-top">
+        <div class="version-tag">Version B</div>
+        <div class="version-title">AI-suggested, my edit</div>
+      </div>
+      <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/Ywzo1hTSwBo" title="Waiting to Exhale - Version B" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="version-note">The rage here is equally real but more generalized. Neither version is wrong. But they are not the same.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIEF RESPONSE -->
+<section>
+  <h2>Brief Response — Research Applied to Music Selection</h2>
+  <p style="font-size:15px;line-height:1.7;color:var(--charcoal-soft);margin-bottom:20px;max-width:640px;">The same research instincts that make archival producing work — knowing what a piece of material does emotionally, where it comes from, who owns it, and how it fits the story — apply to brief-response music curation. This playlist was built against a sync creative brief with per-track clearance thinking included.</p>
+
+  <div class="work-card" style="margin-bottom:20px;">
+    <div class="label">Creative Brief — Illustrative</div>
+    <h3>Meridian (Working Title) — Act II Mood Playlist</h3>
+    <p>Late-night conversations between a 17-year-old girl of West African and Caribbean descent and her grandmother. Slow, intimate, emotionally layered. Music should feel like memory, distance, something loved from far away. Independent or mid-size label representation preferred for clearance flexibility.</p>
+  </div>
+
+  <div class="spotify-wrap">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/10JGADdIrdOzmlcsYjGQ0i?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <div class="tracklist">
+    <div class="track"><div class="track-num">01</div><div><div class="track-title">GORGEOUS</div><div class="track-artist">Muhsinah</div><div class="track-note">Evokes finding safe harbor in someone. Sets the emotional container for the scene. DC-based independent artist, favorable clearance profile.</div></div></div>
+    <div class="track"><div class="track-num">02</div><div><div class="track-title">Head in a Jar</div><div class="track-artist">Khamari</div><div class="track-note">Sinking into the comfort and weight of hearing family history for the first time. Cinematic production, understated enough for dialogue-adjacent placement.</div></div></div>
+    <div class="track"><div class="track-num">03</div><div><div class="track-title">Sunny Days</div><div class="track-artist">Kennedy Ryon</div><div class="track-note">Bluesy like the past. Truth coming to light isn't always comfortable, but it's necessary. Strong lyrical sync potential for scenes of revelation.</div></div></div>
+    <div class="track"><div class="track-num">04</div><div><div class="track-title">Martha</div><div class="track-artist">Kennedy Ryon</div><div class="track-note">A story of someone's past illuminating someone else's present. Same independent artist as track 03, clearance efficiency if both selected.</div></div></div>
+    <div class="track"><div class="track-num">05</div><div><div class="track-title">Some Nights I Dream of Doors</div><div class="track-artist">Obongjayar</div><div class="track-note">Enveloped in memories, hopes, and fears simultaneously. Nigerian-British independent artist, diasporic texture that answers the brief's cultural direction.</div></div></div>
+    <div class="track"><div class="track-num">06</div><div><div class="track-title">Mama Don't Worry</div><div class="track-artist">KIRBY</div><div class="track-note">Honoring sacrifice, learning from the past, forging your own path. The emotional peak of the sequence. High sync potential for scene climax.</div></div></div>
+    <div class="track"><div class="track-num">07</div><div><div class="track-title">River</div><div class="track-artist">Trevor Jackson</div><div class="track-note">The moment where both characters feel the full weight before they can release it. Works for the pivot before emotional resolution.</div></div></div>
+    <div class="track"><div class="track-num">08</div><div><div class="track-title">Breathe</div><div class="track-artist">Jaz Elise</div><div class="track-note">The release. Jamaican independent artist singing in English and Patois, strong closing cue energy.</div></div></div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section>
+  <h2>Research Background</h2>
+
+  <div class="work-card">
+    <div class="label">Graduate Capstone — Carnegie Mellon University, Heinz College · 2025</div>
+    <h3>Remixing the Music Industry: Strategies for 21st Century Record Labels</h3>
+    <p>Led a primary research project that required the same methodology archival producing demands: identify the right sources, design a research framework, reach out to subjects, conduct interviews, and synthesize findings into something coherent and meaningful. Conducted executive interviews with leaders at Position Music, Beatport, Rostrum Records, and more, examining how DSPs, social media, and direct-to-fan strategies shape audience building, revenue diversification, and artist empowerment.</p>
+    <p>The ability to design a research process, navigate access, and build something from primary materials is not just academic. It is exactly what archival producing requires — and this capstone was where I practiced it at the highest level of my training.</p>
+  </div>
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="contact">jabrenee612@gmail.com · (240) 883-2840</div>
+  <div class="btnrow">
+    <a class="btn primary" href="Hussie, Jabrenee - Resume.pdf">Resume</a>
+    <a class="btn ghost" href="https://jhussie.github.io/portfolio">Full Portfolio</a>
+  </div>
+</div>
+
+</body>
+</html>
